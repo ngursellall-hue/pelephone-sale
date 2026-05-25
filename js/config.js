@@ -7,7 +7,7 @@
 window.PELEPHONE_CONFIG = window.PELEPHONE_CONFIG || {
   // כתובת ה-webhook שאליה נשלחים הלידים.
   // אם הערך מכיל את המחרוזת "REPLACE_ME" — השליחה לא תתבצע (placeholder mode).
-  webhookUrl: 'https://n8n.sellall.co.il/webhook/pelephone-plus',
+  webhookUrl: 'https://n8n.sellall.co.il/webhook/pelephone-sale',
 
   // קבועים שנשלחים יחד עם כל ליד
   leadCategory: 'PELEPHONE',
