@@ -132,7 +132,6 @@
   /* ---- Cookie consent ---- */
   var cookieBanner = document.getElementById('cookieBanner');
   var cookieAccept = document.getElementById('cookieAccept');
-  var cookieDecline = document.getElementById('cookieDecline');
 
   function showCookieBanner() {
     if (!cookieBanner) return;
@@ -154,7 +153,6 @@
   }
 
   if (cookieAccept) cookieAccept.addEventListener('click', function () { hideCookieBanner('accepted'); });
-  if (cookieDecline) cookieDecline.addEventListener('click', function () { hideCookieBanner('declined'); });
 
   /* ---- Accessibility widget ---- */
   var A11Y_OPTIONS = [

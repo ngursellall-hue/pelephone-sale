@@ -12,6 +12,7 @@ window.PELEPHONE_CONFIG = window.PELEPHONE_CONFIG || {
   // קבועים שנשלחים יחד עם כל ליד
   leadCategory: 'PELEPHONE',
   leadSourceIdPowerlink: 4,
+  manualCampaign: '123123',
 
   // שירות לזיהוי כתובת IP הציבורית של המבקר (נשלח כ-visitor_ip ב-webhook)
   ipLookupUrl: 'https://api.ipify.org?format=json',

@@ -4,6 +4,7 @@
   var header = document.getElementById('header');
   var leadForm = document.getElementById('leadForm');
   var contactForm = document.getElementById('contactForm');
+  var adminContactForm = document.getElementById('adminContactForm');
   var formSuccess = document.getElementById('formSuccess');
   var packageSelect = document.getElementById('package');
 
@@ -127,7 +128,10 @@
         return;
       }
     } catch (e) { /* noop */ }
-    window.location.href = 'thank-you.html';
+    var base = (window.PELEPHONE_CAMPAIGN && window.PELEPHONE_CAMPAIGN.getAssetBase)
+      ? window.PELEPHONE_CAMPAIGN.getAssetBase()
+      : '';
+    window.location.href = base + 'thank-you.html';
   }
 
   // --- Visitor IP (public IP via lookup service; cached per session) -------
@@ -183,16 +187,42 @@
 
   // --- Webhook submission -------------------------------------------------
 
+  function getCampaignPayloadFields(form) {
+    var cfg = window.PELEPHONE_CONFIG || {};
+    var campaign = (window.PELEPHONE_CAMPAIGN && window.PELEPHONE_CAMPAIGN.get)
+      ? window.PELEPHONE_CAMPAIGN.get()
+      : null;
+
+    var manualCampaign = cfg.manualCampaign || '123123';
+    if (form && form.manual_campaign && form.manual_campaign.value) {
+      manualCampaign = form.manual_campaign.value;
+    } else if (campaign && campaign.manualCampaign) {
+      manualCampaign = campaign.manualCampaign;
+    }
+
+    var pagePath = (form && form.page_path && form.page_path.value)
+      ? form.page_path.value
+      : (campaign && campaign.pagePath)
+        ? campaign.pagePath
+        : (window.location.pathname || '/');
+
+    return { manual_campaign: manualCampaign, page_path: pagePath };
+  }
+
   function buildWebhookPayload(form, opts) {
     opts = opts || {};
     var cfg = window.PELEPHONE_CONFIG || {};
     var utm = (window.PelephoneUtm && window.PelephoneUtm.get) ? window.PelephoneUtm.get() : {};
+
+    var campaignFields = getCampaignPayloadFields(form);
 
     var payload = {
       full_name: form.fullName.value.trim(),
       lead_phone: form.phone.value.trim(),
       lead_category: cfg.leadCategory || 'PELEPHONE',
       lead_source_id_powerlink: (typeof cfg.leadSourceIdPowerlink === 'number') ? cfg.leadSourceIdPowerlink : 4,
+      manual_campaign: campaignFields.manual_campaign,
+      page_path: campaignFields.page_path,
       visitor_ip: ''
     };
 
@@ -339,12 +369,12 @@
     });
   }
 
-  if (contactForm) {
-    contactForm.addEventListener('submit', function (e) {
+  function bindAdminContactForm(form) {
+    form.addEventListener('submit', function (e) {
       e.preventDefault();
       var valid = true;
-      var name = contactForm.fullName.value.trim();
-      var phone = contactForm.phone.value.trim();
+      var name = form.fullName.value.trim();
+      var phone = form.phone.value.trim();
 
       if (name.length < 2) { showError('fullName', true); valid = false; }
       else { showError('fullName', false); }
@@ -352,34 +382,57 @@
       if (!isValidPhone(phone)) { showError('phone', true); valid = false; }
       else { showError('phone', false); }
 
+      var subjectEl = form.subject;
+      var subjectVal = subjectEl ? subjectEl.value.trim() : '';
+      if (subjectEl && subjectEl.required && subjectVal.length < 2) {
+        showError('subject', true);
+        valid = false;
+      } else if (subjectEl) {
+        showError('subject', false);
+      }
+
       if (!valid) return;
 
-      var message = contactForm.message ? contactForm.message.value.trim() : '';
-      var payload = buildWebhookPayload(contactForm, {
-        package: 'contact',
-        message: message
+      var subject = subjectVal;
+      var message = form.message ? form.message.value.trim() : '';
+      var combinedMessage = subject
+        ? (message ? 'נושא: ' + subject + '\n' + message : 'נושא: ' + subject)
+        : message;
+
+      var payload = buildWebhookPayload(form, {
+        package: 'site_admin',
+        message: combinedMessage
       });
+      payload.inquiry_type = 'site_admin';
 
       saveLead({
         fullName: payload.full_name,
         phone: payload.lead_phone,
-        package: 'contact',
-        message: message,
+        package: 'site_admin',
+        message: combinedMessage,
         submittedAt: new Date().toISOString(),
         page: 'contact',
         webhook: payload
       });
 
       if (typeof gtag === 'function') {
-        gtag('event', 'generate_lead', { event_category: 'contact_form' });
+        gtag('event', 'generate_lead', { event_category: 'admin_contact_form' });
       }
 
-      var success = document.getElementById('contactSuccess');
+      var success = document.getElementById('adminContactSuccess');
       if (success) success.classList.add('visible');
-      contactForm.style.display = 'none';
+      form.style.display = 'none';
 
-      withTimeout(sendWebhook(payload), 4000).then(redirectToThankYou);
+      withTimeout(sendWebhook(payload), 4000);
     });
+  }
+
+  if (contactForm) {
+    bindAdminContactForm(contactForm);
+  }
+
+  if (adminContactForm && adminContactForm !== contactForm) {
+    bindAdminContactForm(adminContactForm);
   }
 
   document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
