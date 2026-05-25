@@ -2275,6 +2275,51 @@ h1, h2, h3, h4 {
   padding: 64px 0 80px;
 }
 
+.error-404 {
+  text-align: center;
+  max-width: 520px;
+}
+
+.error-404__code {
+  font-size: clamp(4rem, 18vw, 7rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  background: var(--grad-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  opacity: 0.35;
+  margin-bottom: 8px;
+}
+
+.error-404__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.error-404__actions .btn {
+  min-width: 200px;
+}
+
+.error-404__hint {
+  color: var(--gray-500);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.error-404__hint a {
+  color: var(--blue-primary);
+  font-weight: 600;
+}
+
+.error-404__hint a:hover {
+  color: var(--blue-dark);
+}
+
 .page-content .container {
   max-width: 880px;
 }
