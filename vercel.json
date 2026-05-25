@@ -11,11 +11,163 @@
       "destination": "/index.html"
     },
     {
+      "source": "/active",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/active/",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/active-2",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/active-2/",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/am",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/am/",
+      "destination": "/index.html"
+    },
+    {
       "source": "/b",
       "destination": "/index.html"
     },
     {
       "source": "/b/",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/bm",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/bm/",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/c",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/c/",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/cm",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/cm/",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/d",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/d/",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/deal",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/deal/",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/desktop",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/desktop/",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/e",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/e/",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/em",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/em/",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/f",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/f/",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/fm",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/fm/",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/g",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/g/",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/gm",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/gm/",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/h",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/h/",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/i",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/i/",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/im",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/im/",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/jm",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/jm/",
       "destination": "/index.html"
     }
   ]

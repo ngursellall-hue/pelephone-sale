@@ -1,5 +1,5 @@
 /**
- * Generates vercel.json rewrites and js/campaign-routes.js from campaigns.json.
+ * Reads pelepone sale page.csv → campaigns.json, js/campaign-routes.js, vercel.json
  * Run: npm run build  (also runs on Vercel deploy)
  */
 'use strict';
@@ -8,34 +8,163 @@ var fs = require('fs');
 var path = require('path');
 
 var ROOT = path.join(__dirname, '..');
-var campaignsPath = path.join(ROOT, 'campaigns.json');
-var campaigns = JSON.parse(fs.readFileSync(campaignsPath, 'utf8'));
+var CSV_PATH = path.join(ROOT, 'pelepone sale page.csv');
+var CAMPAIGNS_JSON = path.join(ROOT, 'campaigns.json');
 
-function phoneToTel(phone) {
-  return String(phone).replace(/\D/g, '');
+function parseCsvLine(line) {
+  var fields = [];
+  var cur = '';
+  var inQuotes = false;
+  for (var i = 0; i < line.length; i++) {
+    var ch = line[i];
+    if (ch === '"') {
+      if (inQuotes && line[i + 1] === '"') {
+        cur += '"';
+        i++;
+      } else {
+        inQuotes = !inQuotes;
+      }
+    } else if (ch === ',' && !inQuotes) {
+      fields.push(cur.trim());
+      cur = '';
+    } else {
+      cur += ch;
+    }
+  }
+  fields.push(cur.trim());
+  return fields;
 }
 
+function parseCsv(content) {
+  var lines = content.replace(/^\uFEFF/, '').split(/\r?\n/).filter(function (l) {
+    return l.trim().length > 0;
+  });
+  if (lines.length < 2) {
+    throw new Error('CSV must have header and at least one row');
+  }
+  var rows = [];
+  for (var i = 1; i < lines.length; i++) {
+    var cols = parseCsvLine(lines[i]);
+    if (cols.length < 4) continue;
+    rows.push({
+      url: cols[0],
+      phoneRaw: String(cols[1]).replace(/\D/g, ''),
+      campaignId: String(cols[2]).trim(),
+      channelName: cols[3].trim()
+    });
+  }
+  return rows;
+}
+
+function parsePagePath(url) {
+  var pathname = new URL(url).pathname.toLowerCase();
+  if (pathname.length > 1 && pathname.charAt(pathname.length - 1) !== '/') {
+    pathname += '/';
+  }
+  return pathname;
+}
+
+function formatPhone(digits) {
+  var d = String(digits).replace(/\D/g, '');
+  if (d.length === 9 && d.charAt(0) === '5') {
+    var full = '0' + d;
+    return {
+      phoneDisplay: full.substring(0, 3) + '-' + full.substring(3),
+      phoneTel: full
+    };
+  }
+  if (d.length === 9 && d.charAt(0) === '7') {
+    var land = '0' + d;
+    return {
+      phoneDisplay: land.substring(0, 3) + '-' + land.substring(3, 6) + '-' + land.substring(6),
+      phoneTel: land
+    };
+  }
+  if (d.charAt(0) !== '0') {
+    d = '0' + d;
+  }
+  return {
+    phoneDisplay: d,
+    phoneTel: d.replace(/\D/g, '')
+  };
+}
+
+function pathToRewriteSlug(pagePath) {
+  if (pagePath === '/') return null;
+  return pagePath.replace(/^\/|\/$/g, '');
+}
+
+function loadCampaignsFromCsv() {
+  var content = fs.readFileSync(CSV_PATH, 'utf8');
+  var rows = parseCsv(content);
+  var seen = {};
+  var campaigns = [];
+
+  rows.forEach(function (row, index) {
+    var pagePath;
+    try {
+      pagePath = parsePagePath(row.url);
+    } catch (e) {
+      throw new Error('Invalid URL at row ' + (index + 2) + ': ' + row.url);
+    }
+    if (seen[pagePath]) {
+      throw new Error('Duplicate path: ' + pagePath);
+    }
+    seen[pagePath] = true;
+
+    if (!row.phoneRaw || !row.campaignId || !row.channelName) {
+      throw new Error('Missing fields at row ' + (index + 2) + ': ' + row.url);
+    }
+
+    var phone = formatPhone(row.phoneRaw);
+    var slug = pathToRewriteSlug(pagePath);
+
+    campaigns.push({
+      pagePath: pagePath,
+      slug: slug,
+      phoneDisplay: phone.phoneDisplay,
+      phoneTel: phone.phoneTel,
+      campaignId: row.campaignId,
+      channelName: row.channelName
+    });
+  });
+
+  return campaigns;
+}
+
+var campaigns = loadCampaignsFromCsv();
 var routes = {};
 var rewrites = [];
 
 campaigns.forEach(function (c) {
-  if (!c.slug || !c.phone || !c.campaignId || !c.channelName) {
-    throw new Error('Each campaign needs slug, phone, campaignId, channelName: ' + JSON.stringify(c));
-  }
-  var pagePath = '/' + c.slug + '/';
-  routes[pagePath] = {
-    phoneDisplay: c.phone,
-    phoneTel: phoneToTel(c.phone),
-    campaignId: String(c.campaignId),
-    channelName: String(c.channelName),
-    pagePath: pagePath
+  routes[c.pagePath] = {
+    phoneDisplay: c.phoneDisplay,
+    phoneTel: c.phoneTel,
+    campaignId: c.campaignId,
+    channelName: c.channelName,
+    pagePath: c.pagePath
   };
-  rewrites.push({ source: '/' + c.slug, destination: '/index.html' });
-  rewrites.push({ source: '/' + c.slug + '/', destination: '/index.html' });
+
+  if (c.slug) {
+    rewrites.push({ source: '/' + c.slug, destination: '/index.html' });
+    rewrites.push({ source: '/' + c.slug + '/', destination: '/index.html' });
+  }
 });
 
+var campaignsJson = campaigns.map(function (c) {
+  return {
+    slug: c.slug || '/',
+    pagePath: c.pagePath,
+    phone: c.phoneDisplay,
+    campaignId: c.campaignId,
+    channelName: c.channelName
+  };
+});
+
+fs.writeFileSync(CAMPAIGNS_JSON, JSON.stringify(campaignsJson, null, 2) + '\n', 'utf8');
+
 var routesJs =
-  '/* AUTO-GENERATED by scripts/build-campaigns.js — edit campaigns.json and run npm run build */\n' +
+  '/* AUTO-GENERATED by scripts/build-campaigns.js from pelepone sale page.csv */\n' +
   'window.PELEPHONE_CAMPAIGN_ROUTES = ' +
   JSON.stringify(routes, null, 2) +
   ';\n';
@@ -50,6 +179,10 @@ var vercel = {
 
 fs.writeFileSync(path.join(ROOT, 'vercel.json'), JSON.stringify(vercel, null, 2) + '\n', 'utf8');
 
+var home = routes['/'];
+if (home) {
+  console.log('[build-campaigns] Homepage / → phone ' + home.phoneDisplay + ', channel ' + home.channelName);
+}
 console.log(
-  '[build-campaigns] ' + campaigns.length + ' campaign(s) → js/campaign-routes.js, vercel.json'
+  '[build-campaigns] ' + campaigns.length + ' route(s) from CSV → campaigns.json, campaign-routes.js, vercel.json (' + rewrites.length + ' rewrites)'
 );

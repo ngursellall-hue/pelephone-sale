@@ -1,6 +1,6 @@
 /* ==========================================================================
    Campaign routes — phone, campaign_id, channel_name, page_path per URL path
-   Routes are generated from campaigns.json → js/campaign-routes.js
+   Routes are generated from pelepone sale page.csv → js/campaign-routes.js
    ========================================================================== */
 
 (function () {
@@ -9,8 +9,8 @@
   var ROUTES = window.PELEPHONE_CAMPAIGN_ROUTES || {};
 
   var DEFAULT = {
-    phoneDisplay: '050-830-8939',
-    phoneTel: '0508308939',
+    phoneDisplay: '072-393-1015',
+    phoneTel: '0723931015',
     campaignId: null,
     channelName: null,
     pagePath: null

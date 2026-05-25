@@ -1,14 +1,156 @@
 [
   {
+    "slug": "/",
+    "pagePath": "/",
+    "phone": "072-393-1015",
+    "campaignId": "8866584363",
+    "channelName": "ראשי נייד"
+  },
+  {
     "slug": "a",
-    "phone": "050-9697015",
-    "campaignId": "20355432231",
-    "channelName": "pelephone_landing_a"
+    "pagePath": "/a/",
+    "phone": "050-9695698",
+    "campaignId": "18862440154",
+    "channelName": "קבוצה A"
+  },
+  {
+    "slug": "active",
+    "pagePath": "/active/",
+    "phone": "050-9695754",
+    "campaignId": "12440073323",
+    "channelName": "השארת פרטים"
+  },
+  {
+    "slug": "active-2",
+    "pagePath": "/active-2/",
+    "phone": "050-9990472",
+    "campaignId": "21582700793",
+    "channelName": "השארת פרטים הצטרפות"
+  },
+  {
+    "slug": "am",
+    "pagePath": "/am/",
+    "phone": "050-9695791",
+    "campaignId": "18868006212",
+    "channelName": "משותף A"
   },
   {
     "slug": "b",
-    "phone": "050-1234567",
-    "campaignId": "999888777",
-    "channelName": "pelephone_landing_b"
+    "pagePath": "/b/",
+    "phone": "050-9695700",
+    "campaignId": "18857864352",
+    "channelName": "קבוצה B"
+  },
+  {
+    "slug": "bm",
+    "pagePath": "/bm/",
+    "phone": "050-9695793",
+    "campaignId": "18875105030",
+    "channelName": "משותף B"
+  },
+  {
+    "slug": "c",
+    "pagePath": "/c/",
+    "phone": "050-9695723",
+    "campaignId": "18857987730",
+    "channelName": "קבוצה C"
+  },
+  {
+    "slug": "cm",
+    "pagePath": "/cm/",
+    "phone": "050-9695805",
+    "campaignId": "21583009175",
+    "channelName": "משותף C"
+  },
+  {
+    "slug": "d",
+    "pagePath": "/d/",
+    "phone": "050-9695733",
+    "campaignId": "18862902919",
+    "channelName": "קבוצה D"
+  },
+  {
+    "slug": "deal",
+    "pagePath": "/deal/",
+    "phone": "050-8308739",
+    "campaignId": "8866624275",
+    "channelName": "משותף - נייד"
+  },
+  {
+    "slug": "desktop",
+    "pagePath": "/desktop/",
+    "phone": "050-9695696",
+    "campaignId": "18863711270",
+    "channelName": "ראשי נייח פלאפון"
+  },
+  {
+    "slug": "e",
+    "pagePath": "/e/",
+    "phone": "050-9695735",
+    "campaignId": "18863405701",
+    "channelName": "קבוצה E"
+  },
+  {
+    "slug": "em",
+    "pagePath": "/em/",
+    "phone": "050-9697001",
+    "campaignId": "18868173543",
+    "channelName": "משותף E"
+  },
+  {
+    "slug": "f",
+    "pagePath": "/f/",
+    "phone": "050-8308900",
+    "campaignId": "21576014079",
+    "channelName": "קבוצה F"
+  },
+  {
+    "slug": "fm",
+    "pagePath": "/fm/",
+    "phone": "050-9695695",
+    "campaignId": "21582919373",
+    "channelName": "משותף נייח \"פלאפון\""
+  },
+  {
+    "slug": "g",
+    "pagePath": "/g/",
+    "phone": "050-9997822",
+    "campaignId": "21586313728",
+    "channelName": "קבוצה G"
+  },
+  {
+    "slug": "gm",
+    "pagePath": "/gm/",
+    "phone": "050-9697029",
+    "campaignId": "21576335673",
+    "channelName": "משותף G"
+  },
+  {
+    "slug": "h",
+    "pagePath": "/h/",
+    "phone": "050-9997824",
+    "campaignId": "21576107685",
+    "channelName": "קבוצה H"
+  },
+  {
+    "slug": "i",
+    "pagePath": "/i/",
+    "phone": "050-9997913",
+    "campaignId": "21586372537",
+    "channelName": "קבוצה I"
+  },
+  {
+    "slug": "im",
+    "pagePath": "/im/",
+    "phone": "050-8303611",
+    "campaignId": "18874927355",
+    "channelName": "משותף נייח חוץ"
+  },
+  {
+    "slug": "jm",
+    "pagePath": "/jm/",
+    "phone": "050-8307584",
+    "campaignId": "18868112373",
+    "channelName": "משותף J"
   }
 ]

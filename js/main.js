@@ -190,7 +190,7 @@
       ? window.PELEPHONE_CAMPAIGN.get()
       : null;
 
-    var campaignId = cfg.campaignId || '123123';
+    var campaignId = cfg.campaignId || '8866584363';
     if (form && form.campaign_id && form.campaign_id.value) {
       campaignId = form.campaign_id.value;
     } else if (campaign && campaign.campaignId) {
@@ -224,7 +224,7 @@
       full_name: form.fullName.value.trim(),
       lead_phone: form.phone.value.trim(),
       lead_category: cfg.leadCategory || 'PELEPHONE',
-      lead_source_id_powerlink: (typeof cfg.leadSourceIdPowerlink === 'number') ? cfg.leadSourceIdPowerlink : 4,
+      lead_source_id_powerlink: 4,
       campaign_id: campaignFields.campaign_id,
       channel_name: campaignFields.channel_name,
       page_path: campaignFields.page_path,
