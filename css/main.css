@@ -2078,6 +2078,30 @@ h1, h2, h3, h4 {
   line-height: 1.55;
 }
 
+.footer__contact {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+  font-size: 0.9rem;
+  opacity: 0.85;
+  max-width: 340px;
+  line-height: 1.5;
+}
+
+.footer__contact li + li {
+  margin-top: 6px;
+}
+
+.footer__contact a {
+  color: var(--cyan);
+  transition: opacity var(--transition);
+}
+
+.footer__contact a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
 .footer__phone {
   display: flex;
   align-items: center;
