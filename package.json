@@ -1,0 +1,7 @@
+{
+  "name": "pelephone-sale",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build-campaigns.js"
+  }
+}

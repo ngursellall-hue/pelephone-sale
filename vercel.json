@@ -1,0 +1,14 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": ".",
+  "rewrites": [
+    {
+      "source": "/a",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/a/",
+      "destination": "/index.html"
+    }
+  ]
+}

@@ -128,10 +128,7 @@
         return;
       }
     } catch (e) { /* noop */ }
-    var base = (window.PELEPHONE_CAMPAIGN && window.PELEPHONE_CAMPAIGN.getAssetBase)
-      ? window.PELEPHONE_CAMPAIGN.getAssetBase()
-      : '';
-    window.location.href = base + 'thank-you.html';
+    window.location.href = '/thank-you.html';
   }
 
   // --- Visitor IP (public IP via lookup service; cached per session) -------

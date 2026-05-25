@@ -1,26 +1,18 @@
 /* ==========================================================================
-   Campaign routes — dynamic phone, manual_campaign, page_path per URL
+   Campaign routes — phone, manual_campaign, page_path per URL path
+   Routes are generated from campaigns.json → js/campaign-routes.js
    ========================================================================== */
 
 (function () {
   'use strict';
 
-  var ROUTES = {
-    '/a/': {
-      phoneDisplay: '050-9697015',
-      phoneTel: '0509697015',
-      manualCampaign: '20355432231',
-      pagePath: '/a/',
-      assetBase: '../'
-    }
-  };
+  var ROUTES = window.PELEPHONE_CAMPAIGN_ROUTES || {};
 
   var DEFAULT = {
     phoneDisplay: '050-830-8939',
     phoneTel: '0508308939',
     manualCampaign: null,
-    pagePath: null,
-    assetBase: ''
+    pagePath: null
   };
 
   function normalizePath(pathname) {
@@ -84,30 +76,29 @@
           phoneDisplay: route.phoneDisplay,
           phoneTel: route.phoneTel,
           manualCampaign: route.manualCampaign,
-          pagePath: route.pagePath,
-          assetBase: route.assetBase || ''
+          pagePath: route.pagePath
         }
       : {
           phoneDisplay: DEFAULT.phoneDisplay,
           phoneTel: DEFAULT.phoneTel,
           manualCampaign: null,
-          pagePath: normalizePath(window.location.pathname),
-          assetBase: DEFAULT.assetBase
+          pagePath: normalizePath(window.location.pathname)
         };
 
     window.PELEPHONE_CAMPAIGN = {
       get: function () {
-        return getRouteConfig() ? {
-          phoneDisplay: getRouteConfig().phoneDisplay,
-          phoneTel: getRouteConfig().phoneTel,
-          manualCampaign: getRouteConfig().manualCampaign,
-          pagePath: getRouteConfig().pagePath,
-          assetBase: getRouteConfig().assetBase || ''
-        } : null;
+        var r = getRouteConfig();
+        return r
+          ? {
+              phoneDisplay: r.phoneDisplay,
+              phoneTel: r.phoneTel,
+              manualCampaign: r.manualCampaign,
+              pagePath: r.pagePath
+            }
+          : null;
       },
       getAssetBase: function () {
-        var r = getRouteConfig();
-        return r && r.assetBase ? r.assetBase : '';
+        return '';
       },
       isCampaignRoute: function () {
         return !!getRouteConfig();
