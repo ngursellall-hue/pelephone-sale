@@ -190,11 +190,18 @@
       ? window.PELEPHONE_CAMPAIGN.get()
       : null;
 
-    var manualCampaign = cfg.manualCampaign || '123123';
-    if (form && form.manual_campaign && form.manual_campaign.value) {
-      manualCampaign = form.manual_campaign.value;
-    } else if (campaign && campaign.manualCampaign) {
-      manualCampaign = campaign.manualCampaign;
+    var campaignId = cfg.campaignId || '123123';
+    if (form && form.campaign_id && form.campaign_id.value) {
+      campaignId = form.campaign_id.value;
+    } else if (campaign && campaign.campaignId) {
+      campaignId = campaign.campaignId;
+    }
+
+    var channelName = cfg.channelName || '';
+    if (form && form.channel_name && form.channel_name.value) {
+      channelName = form.channel_name.value;
+    } else if (campaign && campaign.channelName) {
+      channelName = campaign.channelName;
     }
 
     var pagePath = (form && form.page_path && form.page_path.value)
@@ -203,7 +210,7 @@
         ? campaign.pagePath
         : (window.location.pathname || '/');
 
-    return { manual_campaign: manualCampaign, page_path: pagePath };
+    return { campaign_id: campaignId, channel_name: channelName, page_path: pagePath };
   }
 
   function buildWebhookPayload(form, opts) {
@@ -218,12 +225,13 @@
       lead_phone: form.phone.value.trim(),
       lead_category: cfg.leadCategory || 'PELEPHONE',
       lead_source_id_powerlink: (typeof cfg.leadSourceIdPowerlink === 'number') ? cfg.leadSourceIdPowerlink : 4,
-      manual_campaign: campaignFields.manual_campaign,
+      campaign_id: campaignFields.campaign_id,
+      channel_name: campaignFields.channel_name,
       page_path: campaignFields.page_path,
       visitor_ip: ''
     };
 
-    // קבועים מה-config + UTM (כולל ערכי "" אם חסר)
+    // UTM מה-URL — campaign_id ב-payload מגיע מנתיב/טופס, לא מ-UTM
     var keys = (cfg.utmKeys && cfg.utmKeys.length) ? cfg.utmKeys : [
       'campaign_id', 'gclid',
       'utm_campaign', 'utm_content', 'utm_id',
@@ -231,6 +239,7 @@
     ];
     for (var i = 0; i < keys.length; i++) {
       var k = keys[i];
+      if (k === 'campaign_id') continue;
       payload[k] = (utm[k] !== undefined && utm[k] !== null) ? utm[k] : '';
     }
 

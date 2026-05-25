@@ -2,11 +2,13 @@
   {
     "slug": "a",
     "phone": "050-9697015",
-    "manualCampaign": "20355432231"
+    "campaignId": "20355432231",
+    "channelName": "pelephone_landing_a"
   },
   {
     "slug": "b",
     "phone": "050-1234567",
-    "manualCampaign": "999888777"
+    "campaignId": "999888777",
+    "channelName": "pelephone_landing_b"
   }
 ]

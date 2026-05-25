@@ -19,14 +19,15 @@ var routes = {};
 var rewrites = [];
 
 campaigns.forEach(function (c) {
-  if (!c.slug || !c.phone || !c.manualCampaign) {
-    throw new Error('Each campaign needs slug, phone, manualCampaign: ' + JSON.stringify(c));
+  if (!c.slug || !c.phone || !c.campaignId || !c.channelName) {
+    throw new Error('Each campaign needs slug, phone, campaignId, channelName: ' + JSON.stringify(c));
   }
   var pagePath = '/' + c.slug + '/';
   routes[pagePath] = {
     phoneDisplay: c.phone,
     phoneTel: phoneToTel(c.phone),
-    manualCampaign: String(c.manualCampaign),
+    campaignId: String(c.campaignId),
+    channelName: String(c.channelName),
     pagePath: pagePath
   };
   rewrites.push({ source: '/' + c.slug, destination: '/index.html' });

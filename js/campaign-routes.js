@@ -3,13 +3,15 @@ window.PELEPHONE_CAMPAIGN_ROUTES = {
   "/a/": {
     "phoneDisplay": "050-9697015",
     "phoneTel": "0509697015",
-    "manualCampaign": "20355432231",
+    "campaignId": "20355432231",
+    "channelName": "pelephone_landing_a",
     "pagePath": "/a/"
   },
   "/b/": {
     "phoneDisplay": "050-1234567",
     "phoneTel": "0501234567",
-    "manualCampaign": "999888777",
+    "campaignId": "999888777",
+    "channelName": "pelephone_landing_b",
     "pagePath": "/b/"
   }
 };

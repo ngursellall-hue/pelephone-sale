@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Campaign routes — phone, manual_campaign, page_path per URL path
+   Campaign routes — phone, campaign_id, channel_name, page_path per URL path
    Routes are generated from campaigns.json → js/campaign-routes.js
    ========================================================================== */
 
@@ -11,7 +11,8 @@
   var DEFAULT = {
     phoneDisplay: '050-830-8939',
     phoneTel: '0508308939',
-    manualCampaign: null,
+    campaignId: null,
+    channelName: null,
     pagePath: null
   };
 
@@ -51,8 +52,11 @@
       el.textContent = cfg.phoneDisplay;
     });
 
-    var manualEl = document.getElementById('manual_campaign');
-    if (manualEl) manualEl.value = cfg.manualCampaign || '';
+    var campaignIdEl = document.getElementById('campaign_id');
+    if (campaignIdEl) campaignIdEl.value = cfg.campaignId || '';
+
+    var channelEl = document.getElementById('channel_name');
+    if (channelEl) channelEl.value = cfg.channelName || '';
 
     var pathEl = document.getElementById('page_path');
     if (pathEl) pathEl.value = cfg.pagePath || '';
@@ -75,13 +79,15 @@
       ? {
           phoneDisplay: route.phoneDisplay,
           phoneTel: route.phoneTel,
-          manualCampaign: route.manualCampaign,
+          campaignId: route.campaignId,
+          channelName: route.channelName,
           pagePath: route.pagePath
         }
       : {
           phoneDisplay: DEFAULT.phoneDisplay,
           phoneTel: DEFAULT.phoneTel,
-          manualCampaign: null,
+          campaignId: null,
+          channelName: null,
           pagePath: normalizePath(window.location.pathname)
         };
 
@@ -92,7 +98,8 @@
           ? {
               phoneDisplay: r.phoneDisplay,
               phoneTel: r.phoneTel,
-              manualCampaign: r.manualCampaign,
+              campaignId: r.campaignId,
+              channelName: r.channelName,
               pagePath: r.pagePath
             }
           : null;
