@@ -49,21 +49,6 @@ var vercel = {
 
 fs.writeFileSync(path.join(ROOT, 'vercel.json'), JSON.stringify(vercel, null, 2) + '\n', 'utf8');
 
-/* Local static servers (Live Server, etc.) do not read vercel.json — copy index per slug */
-var indexHtml = path.join(ROOT, 'index.html');
-if (!fs.existsSync(indexHtml)) {
-  throw new Error('Missing index.html at project root');
-}
-var indexSource = fs.readFileSync(indexHtml, 'utf8');
-
-campaigns.forEach(function (c) {
-  var dir = path.join(ROOT, c.slug);
-  fs.mkdirSync(dir, { recursive: true });
-  fs.writeFileSync(path.join(dir, 'index.html'), indexSource, 'utf8');
-});
-
 console.log(
-  '[build-campaigns] ' +
-    campaigns.length +
-    ' campaign(s) → js/campaign-routes.js, vercel.json, */index.html'
+  '[build-campaigns] ' + campaigns.length + ' campaign(s) → js/campaign-routes.js, vercel.json'
 );
