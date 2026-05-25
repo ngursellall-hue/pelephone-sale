@@ -9,6 +9,14 @@
     {
       "source": "/a/",
       "destination": "/index.html"
+    },
+    {
+      "source": "/b",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/b/",
+      "destination": "/index.html"
     }
   ]
 }
