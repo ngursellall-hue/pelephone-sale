@@ -18,6 +18,7 @@
 
   function normalizePath(pathname) {
     var p = pathname || '/';
+    p = p.toLowerCase();
     if (/\/index\.html$/i.test(p)) {
       p = p.replace(/\/index\.html$/i, '') || '/';
     }
@@ -30,6 +31,25 @@
   function getRouteConfig() {
     var path = normalizePath(window.location.pathname);
     return ROUTES[path] || null;
+  }
+
+  function canonicalizeUrlCase(canonicalPath) {
+    if (!canonicalPath) return;
+    var current = window.location.pathname;
+    if (current === canonicalPath) return;
+    // Replace only when the difference is purely letter-case, to avoid
+    // unrelated URL rewrites (e.g. /index.html or missing trailing slash).
+    if (current.toLowerCase() !== current &&
+        normalizePath(current) === canonicalPath &&
+        window.history && typeof window.history.replaceState === 'function') {
+      try {
+        window.history.replaceState(
+          window.history.state,
+          document.title,
+          canonicalPath + window.location.search + window.location.hash
+        );
+      } catch (e) { /* noop */ }
+    }
   }
 
   function formatSchemaTelephone(telDigits) {
@@ -113,6 +133,7 @@
     };
 
     if (route) {
+      canonicalizeUrlCase(route.pagePath);
       if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', function () {
           applyToPage(cfg);

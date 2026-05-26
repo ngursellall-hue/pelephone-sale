@@ -3,171 +3,171 @@
   "outputDirectory": ".",
   "rewrites": [
     {
-      "source": "/a",
+      "source": "/:s([aA])",
       "destination": "/index.html"
     },
     {
-      "source": "/a/",
+      "source": "/:s([aA])/",
       "destination": "/index.html"
     },
     {
-      "source": "/active",
+      "source": "/:s([aA][cC][tT][iI][vV][eE])",
       "destination": "/index.html"
     },
     {
-      "source": "/active/",
+      "source": "/:s([aA][cC][tT][iI][vV][eE])/",
       "destination": "/index.html"
     },
     {
-      "source": "/active-2",
+      "source": "/:s([aA][cC][tT][iI][vV][eE]-2)",
       "destination": "/index.html"
     },
     {
-      "source": "/active-2/",
+      "source": "/:s([aA][cC][tT][iI][vV][eE]-2)/",
       "destination": "/index.html"
     },
     {
-      "source": "/am",
+      "source": "/:s([aA][mM])",
       "destination": "/index.html"
     },
     {
-      "source": "/am/",
+      "source": "/:s([aA][mM])/",
       "destination": "/index.html"
     },
     {
-      "source": "/b",
+      "source": "/:s([bB])",
       "destination": "/index.html"
     },
     {
-      "source": "/b/",
+      "source": "/:s([bB])/",
       "destination": "/index.html"
     },
     {
-      "source": "/bm",
+      "source": "/:s([bB][mM])",
       "destination": "/index.html"
     },
     {
-      "source": "/bm/",
+      "source": "/:s([bB][mM])/",
       "destination": "/index.html"
     },
     {
-      "source": "/c",
+      "source": "/:s([cC])",
       "destination": "/index.html"
     },
     {
-      "source": "/c/",
+      "source": "/:s([cC])/",
       "destination": "/index.html"
     },
     {
-      "source": "/cm",
+      "source": "/:s([cC][mM])",
       "destination": "/index.html"
     },
     {
-      "source": "/cm/",
+      "source": "/:s([cC][mM])/",
       "destination": "/index.html"
     },
     {
-      "source": "/d",
+      "source": "/:s([dD])",
       "destination": "/index.html"
     },
     {
-      "source": "/d/",
+      "source": "/:s([dD])/",
       "destination": "/index.html"
     },
     {
-      "source": "/deal",
+      "source": "/:s([dD][eE][aA][lL])",
       "destination": "/index.html"
     },
     {
-      "source": "/deal/",
+      "source": "/:s([dD][eE][aA][lL])/",
       "destination": "/index.html"
     },
     {
-      "source": "/desktop",
+      "source": "/:s([dD][eE][sS][kK][tT][oO][pP])",
       "destination": "/index.html"
     },
     {
-      "source": "/desktop/",
+      "source": "/:s([dD][eE][sS][kK][tT][oO][pP])/",
       "destination": "/index.html"
     },
     {
-      "source": "/e",
+      "source": "/:s([eE])",
       "destination": "/index.html"
     },
     {
-      "source": "/e/",
+      "source": "/:s([eE])/",
       "destination": "/index.html"
     },
     {
-      "source": "/em",
+      "source": "/:s([eE][mM])",
       "destination": "/index.html"
     },
     {
-      "source": "/em/",
+      "source": "/:s([eE][mM])/",
       "destination": "/index.html"
     },
     {
-      "source": "/f",
+      "source": "/:s([fF])",
       "destination": "/index.html"
     },
     {
-      "source": "/f/",
+      "source": "/:s([fF])/",
       "destination": "/index.html"
     },
     {
-      "source": "/fm",
+      "source": "/:s([fF][mM])",
       "destination": "/index.html"
     },
     {
-      "source": "/fm/",
+      "source": "/:s([fF][mM])/",
       "destination": "/index.html"
     },
     {
-      "source": "/g",
+      "source": "/:s([gG])",
       "destination": "/index.html"
     },
     {
-      "source": "/g/",
+      "source": "/:s([gG])/",
       "destination": "/index.html"
     },
     {
-      "source": "/gm",
+      "source": "/:s([gG][mM])",
       "destination": "/index.html"
     },
     {
-      "source": "/gm/",
+      "source": "/:s([gG][mM])/",
       "destination": "/index.html"
     },
     {
-      "source": "/h",
+      "source": "/:s([hH])",
       "destination": "/index.html"
     },
     {
-      "source": "/h/",
+      "source": "/:s([hH])/",
       "destination": "/index.html"
     },
     {
-      "source": "/i",
+      "source": "/:s([iI])",
       "destination": "/index.html"
     },
     {
-      "source": "/i/",
+      "source": "/:s([iI])/",
       "destination": "/index.html"
     },
     {
-      "source": "/im",
+      "source": "/:s([iI][mM])",
       "destination": "/index.html"
     },
     {
-      "source": "/im/",
+      "source": "/:s([iI][mM])/",
       "destination": "/index.html"
     },
     {
-      "source": "/jm",
+      "source": "/:s([jJ][mM])",
       "destination": "/index.html"
     },
     {
-      "source": "/jm/",
+      "source": "/:s([jJ][mM])/",
       "destination": "/index.html"
     }
   ]

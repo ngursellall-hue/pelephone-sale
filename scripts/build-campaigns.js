@@ -94,6 +94,18 @@ function pathToRewriteSlug(pagePath) {
   return pagePath.replace(/^\/|\/$/g, '');
 }
 
+// Build a path-to-regexp pattern that matches the slug case-insensitively.
+// Letters become character classes (`c` → `[cC]`), non-letters stay literal.
+// Vercel rewrites use path-to-regexp, so e.g. `/:s([cC])` matches /c and /C.
+function caseInsensitivePattern(slug) {
+  return slug.split('').map(function (ch) {
+    if (/[a-zA-Z]/.test(ch)) {
+      return '[' + ch.toLowerCase() + ch.toUpperCase() + ']';
+    }
+    return ch;
+  }).join('');
+}
+
 function loadCampaignsFromCsv() {
   var content = fs.readFileSync(CSV_PATH, 'utf8');
   var rows = parseCsv(content);
@@ -146,8 +158,9 @@ campaigns.forEach(function (c) {
   };
 
   if (c.slug) {
-    rewrites.push({ source: '/' + c.slug, destination: '/index.html' });
-    rewrites.push({ source: '/' + c.slug + '/', destination: '/index.html' });
+    var pattern = caseInsensitivePattern(c.slug);
+    rewrites.push({ source: '/:s(' + pattern + ')', destination: '/index.html' });
+    rewrites.push({ source: '/:s(' + pattern + ')/', destination: '/index.html' });
   }
 });
 
