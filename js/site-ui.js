@@ -9,38 +9,85 @@
 
   var PACKAGE_DETAILS = {
     '4g-plus': {
-      title: '4G plus — 400GB',
-      price: '39.90 ₪ לחודש',
-      html: '<p class="modal__lead">חבילת 4G plus עם נפח גלישה גדול, דקות ו-SMS וחיבור ESIM מיידי.</p>' +
-        '<ul class="modal__list">' +
-        '<li>3500 דקות ו-SMS</li>' +
-        '<li>400GB גלישה בדור 4</li>' +
-        '<li>חיבור ESIM מיידי</li>' +
-        '</ul>' +
-        '<p class="modal__note">* המחירים כפופים לתנאי המבצע. תקופת התחייבות תימסר על ידי הנציג לפני חתימה. מחירים כוללים מע"מ.</p>'
+      title: '4G plus',
+      price: 'החל מ- 28 ₪ לחודש',
+      html:
+        '<section class="modal__section">' +
+          '<h3 class="modal__section-title">1. תנאי התוכנית</h3>' +
+          '<div class="modal__section-text">' +
+            '<p>התכנית כוללת 3000 דקות, 3000 SMS ו-400GB בחודש.</p>' +
+          '</div>' +
+        '</section>' +
+        '<section class="modal__section">' +
+          '<h3 class="modal__section-title">2. מחיר</h3>' +
+          '<div class="modal__section-text">' +
+            '<p>למצטרפים מנוי 1 — 39.9 ש"ח לחודש למנוי</p>' +
+            '<p>למצטרפים מנוי 2 — 35 ש"ח לחודש למנוי</p>' +
+            '<p>למצטרפים מנוי 3 — 33 ש"ח לחודש למנוי</p>' +
+            '<p>למצטרפים מנוי 4 — 30 ש"ח לחודש למנוי</p>' +
+            '<p>למצטרפים מנוי 5 — 28 ש"ח לחודש למנוי</p>' +
+            '<p>מהחודש ה-13 יהיה התשלום 69.90 ₪ לחודש לכל מנוי</p>' +
+          '</div>' +
+        '</section>' +
+        '<section class="modal__section">' +
+          '<h3 class="modal__section-title">3. פרטים נוספים</h3>' +
+          '<div class="modal__section-text">' +
+            '<p>כרטיס SIM ללא עלות</p>' +
+            '<p class="modal__note">* כפופים לתנאי המבצע המעודכנים בחברת פלאפון. ללא התחייבות. מחירים כוללים מע"מ.</p>' +
+          '</div>' +
+        '</section>'
     },
     'perfect': {
-      title: 'פלאפון Perfect — 300GB',
-      price: 'החל מ- 28 ₪ לחודש',
-      html: '<p class="modal__lead">חבילה משתלמת עם 300GB גלישה, דקות ו-SMS וחיבור ESIM מיידי.</p>' +
-        '<ul class="modal__list">' +
-        '<li>3000 דקות ו-SMS</li>' +
-        '<li>300GB גלישה בדור 4</li>' +
-        '<li>חיבור ESIM מיידי</li>' +
-        '</ul>' +
-        '<p class="modal__note">* המחירים כפופים לתנאי המבצע. תקופת התחייבות תימסר על ידי הנציג לפני חתימה. מחירים כוללים מע"מ.</p>'
+      title: 'together 5G',
+      price: 'החל מ- 35 ₪ לחודש',
+      html:
+        '<section class="modal__section">' +
+          '<h3 class="modal__section-title">1. תנאי התוכנית</h3>' +
+          '<div class="modal__section-text">' +
+            '<p>התכנית כוללת 5000 דקות, 5000 SMS ו-500GB בחודש. | גלישה בדור 5</p>' +
+          '</div>' +
+        '</section>' +
+        '<section class="modal__section">' +
+          '<h3 class="modal__section-title">2. מחיר</h3>' +
+          '<div class="modal__section-text">' +
+            '<p>למצטרפים מנוי 1 — 39.9 ש"ח לחודש למנוי</p>' +
+            '<p>למצטרפים 2 מנויים ומעלה — 35 ש"ח לחודש למנוי</p>' +
+            '<p>מהחודש ה-13 יהיה התשלום 69.90 ₪ לחודש לכל מנוי</p>' +
+          '</div>' +
+        '</section>' +
+        '<section class="modal__section">' +
+          '<h3 class="modal__section-title">3. פרטים נוספים</h3>' +
+          '<div class="modal__section-text">' +
+            '<p>כרטיס SIM ללא עלות</p>' +
+            '<p class="modal__note">* כפופים לתנאי המבצע המעודכנים בחברת פלאפון. ללא התחייבות. מחירים כוללים מע"מ.</p>' +
+          '</div>' +
+        '</section>'
     },
     '5g-plus-new': {
-      title: '5G Plus NEW — 800GB',
-      price: 'החל מ- 39.90 ₪ לחודש',
-      html: '<p class="modal__lead">חבילת 5G מתקדמת עם נפח גלישה עצום, דקות ו-SMS ומועדון הטבות 5G.</p>' +
-        '<ul class="modal__list">' +
-        '<li>5000 דקות ו-SMS</li>' +
-        '<li>800GB גלישה בדור 4</li>' +
-        '<li>חיבור ESIM מיידי</li>' +
-        '<li>מועדון הטבות 5G</li>' +
-        '</ul>' +
-        '<p class="modal__note">* המחירים כפופים לתנאי המבצע. תקופת התחייבות תימסר על ידי הנציג לפני חתימה. מחירים כוללים מע"מ.</p>'
+      title: '5G Plus NEW',
+      price: '39 ₪ לחודש',
+      html:
+        '<section class="modal__section">' +
+          '<h3 class="modal__section-title">1. תנאי התוכנית</h3>' +
+          '<div class="modal__section-text">' +
+            '<p>התכנית כוללת 5000 דקות, 5000 SMS ו-800GB בחודש. | גלישה בדור 5</p>' +
+          '</div>' +
+        '</section>' +
+        '<section class="modal__section">' +
+          '<h3 class="modal__section-title">2. מחיר</h3>' +
+          '<div class="modal__section-text">' +
+            '<p>39.9 ש"ח לחודש למנוי</p>' +
+            '<p>מהחודש ה-13 יהיה התשלום 59.90 ₪ לחודש לכל מנוי</p>' +
+          '</div>' +
+        '</section>' +
+        '<section class="modal__section">' +
+          '<h3 class="modal__section-title">3. פרטים נוספים</h3>' +
+          '<div class="modal__section-text">' +
+            '<p>כרטיס SIM ללא עלות</p>' +
+            '<p>הטבת 100 ש"ח לרכישה בפלאפון מוצרים שמחירם מ-599 ש"ח</p>' +
+            '<p class="modal__note">* כפופים לתנאי המבצע המעודכנים בחברת פלאפון. ללא התחייבות. מחירים כוללים מע"מ.</p>' +
+          '</div>' +
+        '</section>'
     }
   };
 
@@ -87,7 +134,7 @@
     if (!packageModal || !info) return;
 
     lastFocus = document.activeElement;
-    packageModalTitle.textContent = info.title + ' · ' + info.price;
+    packageModalTitle.textContent = info.title;
     packageModalBody.innerHTML = info.html;
     if (packageModalCta) {
       packageModalCta.setAttribute('data-package', pkgId);
