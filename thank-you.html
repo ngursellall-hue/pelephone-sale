@@ -101,25 +101,16 @@
       </div>
     </section>
 
-    <section class="thanks-actions-section">
+    <section class="thanks-call-section" aria-labelledby="thanksCallHeading">
       <div class="container">
-        <div style="text-align:center;">
+        <div class="thanks-call-card">
           <span class="section-eyebrow">בינתיים</span>
-          <h2 class="section-title">לא רוצים לחכות? <span class="accent">דברו איתנו עכשיו</span></h2>
-          <p class="section-subtitle">בחרו את הערוץ הכי נוח לכם</p>
-        </div>
-
-        <div class="thanks-actions">
-          <a href="tel:0508308939" class="thanks-action">
-            <span class="thanks-action__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-            </span>
-            <span class="thanks-action__body">
-              <span class="thanks-action__title">חיוג ישיר</span>
-              <span class="thanks-action__text">050-830-8939 · א'-ה' 09:00–19:00</span>
-            </span>
-            <svg class="thanks-action__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          <h2 class="thanks-call-card__title" id="thanksCallHeading">לא רוצים לחכות? <span class="accent">התקשרו עכשיו</span></h2>
+          <a href="tel:0723931015" class="thanks-call-card__phone" id="thanksCallLink">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            <span class="thanks-call-card__number" id="thanksCallNumber" dir="ltr">072-393-1015</span>
           </a>
+          <p class="thanks-call-card__hours" id="thanksCallHours">א'-ה' 08:00–19:00 · שישי וערב חג 08:00–13:00</p>
         </div>
       </div>
     </section>
@@ -226,16 +217,60 @@
       <button type="button" class="a11y-panel__btn a11y-panel__btn--reset" data-a11y="reset">איפוס הגדרות</button>
     </div>
   </div>
+  <script src="js/campaign-routes.js"></script>
   <script src="js/config.js"></script>
   <script src="js/utm.js"></script>
   <script src="js/main.js"></script>
   <script src="js/site-ui.js"></script>
   <script>
     (function () {
+      function normalizePagePathForLookup(path) {
+        if (!path || path === 'contact') return '/';
+        var p = String(path).toLowerCase();
+        if (p.indexOf('contact') !== -1) return '/';
+        if (/\/index\.html$/i.test(p)) {
+          p = p.replace(/\/index\.html$/i, '') || '/';
+        }
+        if (p.length > 1 && p.charAt(p.length - 1) !== '/') {
+          p += '/';
+        }
+        return p;
+      }
+
+      function setThanksCallPhone(display, tel) {
+        var link = document.getElementById('thanksCallLink');
+        var number = document.getElementById('thanksCallNumber');
+        if (link && tel) link.setAttribute('href', 'tel:' + tel);
+        if (number && display) number.textContent = display;
+      }
+
+      function resolveCallPhoneFromLead(lead) {
+        if (lead.campaignPhoneDisplay && lead.campaignPhoneTel) {
+          return { phoneDisplay: lead.campaignPhoneDisplay, phoneTel: lead.campaignPhoneTel };
+        }
+        var routes = window.PELEPHONE_CAMPAIGN_ROUTES;
+        if (!routes) return null;
+        var pagePath = (lead.webhook && lead.webhook.page_path) || lead.page;
+        var lookupPath = normalizePagePathForLookup(pagePath);
+        var route = routes[lookupPath] || routes['/'];
+        if (!route) return null;
+        return { phoneDisplay: route.phoneDisplay, phoneTel: route.phoneTel };
+      }
+
       var raw = sessionStorage.getItem('pelephone_lastLead');
-      if (!raw) return;
+      if (!raw) {
+        var homeRoute = window.PELEPHONE_CAMPAIGN_ROUTES && window.PELEPHONE_CAMPAIGN_ROUTES['/'];
+        if (homeRoute) {
+          setThanksCallPhone(homeRoute.phoneDisplay, homeRoute.phoneTel);
+        }
+        return;
+      }
       try {
         var lead = JSON.parse(raw);
+        var callPhone = resolveCallPhoneFromLead(lead);
+        if (callPhone) {
+          setThanksCallPhone(callPhone.phoneDisplay, callPhone.phoneTel);
+        }
         var packageNames = {
           '4g-plus': '4G plus — 400GB · החל מ-28 ₪/חודש',
           'perfect': 'together 5G — 500GB · החל מ-35 ₪/חודש',

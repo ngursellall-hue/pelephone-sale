@@ -61,10 +61,31 @@
     });
   });
 
+  // Israeli mobile/landline for webhook: 0525452221 (digits only, leading 0).
+  function normalizeLeadPhone(value) {
+    var digits = String(value || '').replace(/\D/g, '');
+    if (!digits) return '';
+
+    var guard = 0;
+    while (digits.indexOf('00') === 0 && guard < 3) {
+      digits = digits.slice(2);
+      guard++;
+    }
+
+    if (digits.indexOf('972') === 0 && digits.length >= 11) {
+      digits = '0' + digits.slice(3);
+    }
+
+    if (digits.charAt(0) !== '0' && digits.length === 9 &&
+        (digits.charAt(0) === '5' || digits.charAt(0) === '7')) {
+      digits = '0' + digits;
+    }
+
+    return digits;
+  }
+
   function isValidPhone(value) {
-    var digits = value.replace(/\D/g, '');
-    if (digits.indexOf('972') === 0) digits = '0' + digits.slice(3);
-    return /^0(5[0-9]|7[2-9])\d{7}$/.test(digits);
+    return /^0(5[0-9]|7[2-9])\d{7}$/.test(normalizeLeadPhone(value));
   }
 
   var errorMap = {
@@ -110,7 +131,45 @@
     return valid;
   }
 
+  function normalizePagePathForLookup(path) {
+    if (!path || path === 'contact') return '/';
+    var p = String(path).toLowerCase();
+    if (p.indexOf('contact') !== -1) return '/';
+    if (/\/index\.html$/i.test(p)) {
+      p = p.replace(/\/index\.html$/i, '') || '/';
+    }
+    if (p.length > 1 && p.charAt(p.length - 1) !== '/') {
+      p += '/';
+    }
+    return p;
+  }
+
+  function getCampaignContactPhone(pagePath) {
+    var campaign = (window.PELEPHONE_CAMPAIGN && window.PELEPHONE_CAMPAIGN.get)
+      ? window.PELEPHONE_CAMPAIGN.get()
+      : null;
+    if (campaign && campaign.phoneDisplay && campaign.phoneTel) {
+      return { phoneDisplay: campaign.phoneDisplay, phoneTel: campaign.phoneTel };
+    }
+
+    var routes = window.PELEPHONE_CAMPAIGN_ROUTES;
+    if (routes) {
+      var lookupPath = normalizePagePathForLookup(pagePath);
+      var route = routes[lookupPath] || routes['/'];
+      if (route) {
+        return { phoneDisplay: route.phoneDisplay, phoneTel: route.phoneTel };
+      }
+    }
+
+    return { phoneDisplay: '072-393-1015', phoneTel: '0723931015' };
+  }
+
   function saveLead(data) {
+    var pagePath = (data.webhook && data.webhook.page_path) || data.page;
+    var campaignPhone = getCampaignContactPhone(pagePath);
+    data.campaignPhoneDisplay = campaignPhone.phoneDisplay;
+    data.campaignPhoneTel = campaignPhone.phoneTel;
+
     var leads = JSON.parse(localStorage.getItem('pelephone_leads') || '[]');
     leads.push(data);
     localStorage.setItem('pelephone_leads', JSON.stringify(leads));
@@ -210,7 +269,22 @@
         ? campaign.pagePath
         : (window.location.pathname || '/');
 
-    return { campaign_id: campaignId, channel_name: channelName, page_path: pagePath };
+    var leadSourceId = cfg.leadSourceIdPowerlink !== undefined && cfg.leadSourceIdPowerlink !== null
+      ? cfg.leadSourceIdPowerlink
+      : 3;
+    if (form && form.lead_source_id_powerlink && form.lead_source_id_powerlink.value !== '') {
+      leadSourceId = parseInt(form.lead_source_id_powerlink.value, 10);
+      if (isNaN(leadSourceId)) leadSourceId = cfg.leadSourceIdPowerlink !== undefined ? cfg.leadSourceIdPowerlink : 3;
+    } else if (campaign && campaign.leadSourceIdPowerlink !== undefined && campaign.leadSourceIdPowerlink !== null) {
+      leadSourceId = campaign.leadSourceIdPowerlink;
+    }
+
+    return {
+      campaign_id: campaignId,
+      channel_name: channelName,
+      page_path: pagePath,
+      lead_source_id_powerlink: leadSourceId
+    };
   }
 
   function buildWebhookPayload(form, opts) {
@@ -222,9 +296,9 @@
 
     var payload = {
       full_name: form.fullName.value.trim(),
-      lead_phone: form.phone.value.trim(),
+      lead_phone: normalizeLeadPhone(form.phone.value),
       lead_category: cfg.leadCategory || 'PELEPHONE',
-      lead_source_id_powerlink: 4,
+      lead_source_id_powerlink: campaignFields.lead_source_id_powerlink,
       campaign_id: campaignFields.campaign_id,
       channel_name: campaignFields.channel_name,
       page_path: campaignFields.page_path,

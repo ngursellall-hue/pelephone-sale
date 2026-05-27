@@ -11,7 +11,7 @@ window.PELEPHONE_CONFIG = window.PELEPHONE_CONFIG || {
 
   // קבועים שנשלחים יחד עם כל ליד
   leadCategory: 'PELEPHONE',
-  leadSourceIdPowerlink: 4,
+  leadSourceIdPowerlink: 3,
   campaignId: '8866584363',
   channelName: 'ראשי נייד',
 

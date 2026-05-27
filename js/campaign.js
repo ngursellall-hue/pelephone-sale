@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Campaign routes — phone, campaign_id, channel_name, page_path per URL path
+   Campaign routes — phone, campaign_id, channel_name, page_path, lead_source_id per URL path
    Routes are generated from pelepone sale page.csv → js/campaign-routes.js
    ========================================================================== */
 
@@ -81,6 +81,11 @@
     var pathEl = document.getElementById('page_path');
     if (pathEl) pathEl.value = cfg.pagePath || '';
 
+    var leadSourceEl = document.getElementById('lead_source_id_powerlink');
+    if (leadSourceEl && cfg.leadSourceIdPowerlink !== undefined && cfg.leadSourceIdPowerlink !== null) {
+      leadSourceEl.value = String(cfg.leadSourceIdPowerlink);
+    }
+
     var schemaTel = document.querySelector('script[data-campaign-schema-tel]');
     if (schemaTel) {
       try {
@@ -101,7 +106,8 @@
           phoneTel: route.phoneTel,
           campaignId: route.campaignId,
           channelName: route.channelName,
-          pagePath: route.pagePath
+          pagePath: route.pagePath,
+          leadSourceIdPowerlink: route.leadSourceIdPowerlink
         }
       : {
           phoneDisplay: DEFAULT.phoneDisplay,
@@ -120,7 +126,8 @@
               phoneTel: r.phoneTel,
               campaignId: r.campaignId,
               channelName: r.channelName,
-              pagePath: r.pagePath
+              pagePath: r.pagePath,
+              leadSourceIdPowerlink: r.leadSourceIdPowerlink
             }
           : null;
       },

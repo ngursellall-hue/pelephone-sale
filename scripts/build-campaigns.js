@@ -45,12 +45,18 @@ function parseCsv(content) {
   var rows = [];
   for (var i = 1; i < lines.length; i++) {
     var cols = parseCsvLine(lines[i]);
-    if (cols.length < 4) continue;
+    if (cols.length < 5) continue;
+    var leadSourceRaw = String(cols[4]).trim();
+    var leadSourceIdPowerlink = leadSourceRaw === '' ? NaN : parseInt(leadSourceRaw, 10);
+    if (isNaN(leadSourceIdPowerlink)) {
+      throw new Error('Invalid lead_source_id_powerlink at row ' + (i + 1));
+    }
     rows.push({
       url: cols[0],
       phoneRaw: String(cols[1]).replace(/\D/g, ''),
       campaignId: String(cols[2]).trim(),
-      channelName: cols[3].trim()
+      channelName: cols[3].trim(),
+      leadSourceIdPowerlink: leadSourceIdPowerlink
     });
   }
   return rows;
@@ -124,7 +130,8 @@ function loadCampaignsFromCsv() {
     }
     seen[pagePath] = true;
 
-    if (!row.phoneRaw || !row.campaignId || !row.channelName) {
+    if (!row.phoneRaw || !row.campaignId || !row.channelName ||
+        row.leadSourceIdPowerlink === undefined || row.leadSourceIdPowerlink === null) {
       throw new Error('Missing fields at row ' + (index + 2) + ': ' + row.url);
     }
 
@@ -137,7 +144,8 @@ function loadCampaignsFromCsv() {
       phoneDisplay: phone.phoneDisplay,
       phoneTel: phone.phoneTel,
       campaignId: row.campaignId,
-      channelName: row.channelName
+      channelName: row.channelName,
+      leadSourceIdPowerlink: row.leadSourceIdPowerlink
     });
   });
 
@@ -154,7 +162,8 @@ campaigns.forEach(function (c) {
     phoneTel: c.phoneTel,
     campaignId: c.campaignId,
     channelName: c.channelName,
-    pagePath: c.pagePath
+    pagePath: c.pagePath,
+    leadSourceIdPowerlink: c.leadSourceIdPowerlink
   };
 
   if (c.slug) {
@@ -170,7 +179,8 @@ var campaignsJson = campaigns.map(function (c) {
     pagePath: c.pagePath,
     phone: c.phoneDisplay,
     campaignId: c.campaignId,
-    channelName: c.channelName
+    channelName: c.channelName,
+    leadSourceIdPowerlink: c.leadSourceIdPowerlink
   };
 });
 

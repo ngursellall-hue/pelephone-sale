@@ -5,153 +5,175 @@ window.PELEPHONE_CAMPAIGN_ROUTES = {
     "phoneTel": "0723931015",
     "campaignId": "8866584363",
     "channelName": "ראשי נייד",
-    "pagePath": "/"
+    "pagePath": "/",
+    "leadSourceIdPowerlink": 3
   },
   "/a/": {
     "phoneDisplay": "050-9695698",
     "phoneTel": "0509695698",
     "campaignId": "18862440154",
     "channelName": "קבוצה A",
-    "pagePath": "/a/"
+    "pagePath": "/a/",
+    "leadSourceIdPowerlink": 3
   },
   "/active/": {
     "phoneDisplay": "050-9695754",
     "phoneTel": "0509695754",
     "campaignId": "12440073323",
     "channelName": "השארת פרטים",
-    "pagePath": "/active/"
+    "pagePath": "/active/",
+    "leadSourceIdPowerlink": 3
   },
   "/active-2/": {
     "phoneDisplay": "050-9990472",
     "phoneTel": "0509990472",
     "campaignId": "21582700793",
     "channelName": "השארת פרטים הצטרפות",
-    "pagePath": "/active-2/"
+    "pagePath": "/active-2/",
+    "leadSourceIdPowerlink": 3
   },
   "/am/": {
     "phoneDisplay": "050-9695791",
     "phoneTel": "0509695791",
     "campaignId": "18868006212",
     "channelName": "משותף A",
-    "pagePath": "/am/"
+    "pagePath": "/am/",
+    "leadSourceIdPowerlink": 0
   },
   "/b/": {
     "phoneDisplay": "050-9695700",
     "phoneTel": "0509695700",
     "campaignId": "18857864352",
     "channelName": "קבוצה B",
-    "pagePath": "/b/"
+    "pagePath": "/b/",
+    "leadSourceIdPowerlink": 3
   },
   "/bm/": {
     "phoneDisplay": "050-9695793",
     "phoneTel": "0509695793",
     "campaignId": "18875105030",
     "channelName": "משותף B",
-    "pagePath": "/bm/"
+    "pagePath": "/bm/",
+    "leadSourceIdPowerlink": 0
   },
   "/c/": {
     "phoneDisplay": "050-9695723",
     "phoneTel": "0509695723",
     "campaignId": "18857987730",
     "channelName": "קבוצה C",
-    "pagePath": "/c/"
+    "pagePath": "/c/",
+    "leadSourceIdPowerlink": 3
   },
   "/cm/": {
     "phoneDisplay": "050-9695805",
     "phoneTel": "0509695805",
     "campaignId": "21583009175",
     "channelName": "משותף C",
-    "pagePath": "/cm/"
+    "pagePath": "/cm/",
+    "leadSourceIdPowerlink": 0
   },
   "/d/": {
     "phoneDisplay": "050-9695733",
     "phoneTel": "0509695733",
     "campaignId": "18862902919",
     "channelName": "קבוצה D",
-    "pagePath": "/d/"
+    "pagePath": "/d/",
+    "leadSourceIdPowerlink": 3
   },
   "/deal/": {
     "phoneDisplay": "050-8308739",
     "phoneTel": "0508308739",
     "campaignId": "8866624275",
     "channelName": "משותף - נייד",
-    "pagePath": "/deal/"
+    "pagePath": "/deal/",
+    "leadSourceIdPowerlink": 0
   },
   "/desktop/": {
     "phoneDisplay": "050-9695696",
     "phoneTel": "0509695696",
     "campaignId": "18863711270",
     "channelName": "ראשי נייח פלאפון",
-    "pagePath": "/desktop/"
+    "pagePath": "/desktop/",
+    "leadSourceIdPowerlink": 3
   },
   "/e/": {
     "phoneDisplay": "050-9695735",
     "phoneTel": "0509695735",
     "campaignId": "18863405701",
     "channelName": "קבוצה E",
-    "pagePath": "/e/"
+    "pagePath": "/e/",
+    "leadSourceIdPowerlink": 3
   },
   "/em/": {
     "phoneDisplay": "050-9697001",
     "phoneTel": "0509697001",
     "campaignId": "18868173543",
     "channelName": "משותף E",
-    "pagePath": "/em/"
+    "pagePath": "/em/",
+    "leadSourceIdPowerlink": 0
   },
   "/f/": {
     "phoneDisplay": "050-8308900",
     "phoneTel": "0508308900",
     "campaignId": "21576014079",
     "channelName": "קבוצה F",
-    "pagePath": "/f/"
+    "pagePath": "/f/",
+    "leadSourceIdPowerlink": 3
   },
   "/fm/": {
     "phoneDisplay": "050-9695695",
     "phoneTel": "0509695695",
     "campaignId": "21582919373",
     "channelName": "משותף נייח \"פלאפון\"",
-    "pagePath": "/fm/"
+    "pagePath": "/fm/",
+    "leadSourceIdPowerlink": 0
   },
   "/g/": {
     "phoneDisplay": "050-9997822",
     "phoneTel": "0509997822",
     "campaignId": "21586313728",
     "channelName": "קבוצה G",
-    "pagePath": "/g/"
+    "pagePath": "/g/",
+    "leadSourceIdPowerlink": 3
   },
   "/gm/": {
     "phoneDisplay": "050-9697029",
     "phoneTel": "0509697029",
     "campaignId": "21576335673",
     "channelName": "משותף G",
-    "pagePath": "/gm/"
+    "pagePath": "/gm/",
+    "leadSourceIdPowerlink": 0
   },
   "/h/": {
     "phoneDisplay": "050-9997824",
     "phoneTel": "0509997824",
     "campaignId": "21576107685",
     "channelName": "קבוצה H",
-    "pagePath": "/h/"
+    "pagePath": "/h/",
+    "leadSourceIdPowerlink": 3
   },
   "/i/": {
     "phoneDisplay": "050-9997913",
     "phoneTel": "0509997913",
     "campaignId": "21586372537",
     "channelName": "קבוצה I",
-    "pagePath": "/i/"
+    "pagePath": "/i/",
+    "leadSourceIdPowerlink": 3
   },
   "/im/": {
     "phoneDisplay": "050-8303611",
     "phoneTel": "0508303611",
     "campaignId": "18874927355",
     "channelName": "משותף נייח חוץ",
-    "pagePath": "/im/"
+    "pagePath": "/im/",
+    "leadSourceIdPowerlink": 0
   },
   "/jm/": {
     "phoneDisplay": "050-8307584",
     "phoneTel": "0508307584",
     "campaignId": "18868112373",
     "channelName": "משותף J",
-    "pagePath": "/jm/"
+    "pagePath": "/jm/",
+    "leadSourceIdPowerlink": 0
   }
 };
