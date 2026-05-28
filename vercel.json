@@ -169,6 +169,14 @@
     {
       "source": "/:s([jJ][mM])/",
       "destination": "/index.html"
+    },
+    {
+      "source": "/:s([kK][mM])",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/:s([kK][mM])/",
+      "destination": "/index.html"
     }
   ]
 }

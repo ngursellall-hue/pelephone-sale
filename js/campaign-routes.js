@@ -175,5 +175,13 @@ window.PELEPHONE_CAMPAIGN_ROUTES = {
     "channelName": "משותף J",
     "pagePath": "/jm/",
     "leadSourceIdPowerlink": 0
+  },
+  "/km/": {
+    "phoneDisplay": "050-8307583",
+    "phoneTel": "0508307583",
+    "campaignId": "21576335670",
+    "channelName": "משותף K",
+    "pagePath": "/km/",
+    "leadSourceIdPowerlink": 0
   }
 };

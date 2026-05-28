@@ -174,5 +174,13 @@
     "campaignId": "18868112373",
     "channelName": "משותף J",
     "leadSourceIdPowerlink": 0
+  },
+  {
+    "slug": "km",
+    "pagePath": "/km/",
+    "phone": "050-8307583",
+    "campaignId": "21576335670",
+    "channelName": "משותף K",
+    "leadSourceIdPowerlink": 0
   }
 ]
