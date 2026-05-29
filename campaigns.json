@@ -182,5 +182,13 @@
     "campaignId": "21576335670",
     "channelName": "משותף K",
     "leadSourceIdPowerlink": 0
+  },
+  {
+    "slug": "pmax",
+    "pagePath": "/pmax/",
+    "phone": "050-9990471",
+    "campaignId": "22937037576",
+    "channelName": "PMAX",
+    "leadSourceIdPowerlink": 3
   }
 ]

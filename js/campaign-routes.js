@@ -183,5 +183,13 @@ window.PELEPHONE_CAMPAIGN_ROUTES = {
     "channelName": "משותף K",
     "pagePath": "/km/",
     "leadSourceIdPowerlink": 0
+  },
+  "/pmax/": {
+    "phoneDisplay": "050-9990471",
+    "phoneTel": "0509990471",
+    "campaignId": "22937037576",
+    "channelName": "PMAX",
+    "pagePath": "/pmax/",
+    "leadSourceIdPowerlink": 3
   }
 };

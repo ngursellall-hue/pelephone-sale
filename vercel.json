@@ -177,6 +177,14 @@
     {
       "source": "/:s([kK][mM])/",
       "destination": "/index.html"
+    },
+    {
+      "source": "/:s([pP][mM][aA][xX])",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/:s([pP][mM][aA][xX])/",
+      "destination": "/index.html"
     }
   ]
 }
