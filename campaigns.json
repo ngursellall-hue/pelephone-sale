@@ -190,5 +190,13 @@
     "campaignId": "22937037576",
     "channelName": "PMAX",
     "leadSourceIdPowerlink": 3
+  },
+  {
+    "slug": "hm",
+    "pagePath": "/hm/",
+    "phone": "050-8303605",
+    "campaignId": "21576335664",
+    "channelName": "משותף נייח [פלאפון]",
+    "leadSourceIdPowerlink": 0
   }
 ]

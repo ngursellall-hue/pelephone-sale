@@ -191,5 +191,13 @@ window.PELEPHONE_CAMPAIGN_ROUTES = {
     "channelName": "PMAX",
     "pagePath": "/pmax/",
     "leadSourceIdPowerlink": 3
+  },
+  "/hm/": {
+    "phoneDisplay": "050-8303605",
+    "phoneTel": "0508303605",
+    "campaignId": "21576335664",
+    "channelName": "משותף נייח [פלאפון]",
+    "pagePath": "/hm/",
+    "leadSourceIdPowerlink": 0
   }
 };

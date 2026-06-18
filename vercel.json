@@ -185,6 +185,14 @@
     {
       "source": "/:s([pP][mM][aA][xX])/",
       "destination": "/index.html"
+    },
+    {
+      "source": "/:s([hH][mM])",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/:s([hH][mM])/",
+      "destination": "/index.html"
     }
   ]
 }
