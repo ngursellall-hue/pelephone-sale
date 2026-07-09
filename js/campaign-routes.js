@@ -199,5 +199,13 @@ window.PELEPHONE_CAMPAIGN_ROUTES = {
     "channelName": "משותף נייח [פלאפון]",
     "pagePath": "/hm/",
     "leadSourceIdPowerlink": 0
+  },
+  "/dm/": {
+    "phoneDisplay": "050-8489587",
+    "phoneTel": "0508489587",
+    "campaignId": "21586605061",
+    "channelName": "משותף D",
+    "pagePath": "/dm/",
+    "leadSourceIdPowerlink": 0
   }
 };

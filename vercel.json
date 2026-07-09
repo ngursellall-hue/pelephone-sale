@@ -193,6 +193,14 @@
     {
       "source": "/:s([hH][mM])/",
       "destination": "/index.html"
+    },
+    {
+      "source": "/:s([dD][mM])",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/:s([dD][mM])/",
+      "destination": "/index.html"
     }
   ]
 }

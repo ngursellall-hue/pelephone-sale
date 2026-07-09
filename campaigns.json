@@ -198,5 +198,13 @@
     "campaignId": "21576335664",
     "channelName": "משותף נייח [פלאפון]",
     "leadSourceIdPowerlink": 0
+  },
+  {
+    "slug": "dm",
+    "pagePath": "/dm/",
+    "phone": "050-8489587",
+    "campaignId": "21586605061",
+    "channelName": "משותף D",
+    "leadSourceIdPowerlink": 0
   }
 ]
