@@ -201,8 +201,8 @@ window.PELEPHONE_CAMPAIGN_ROUTES = {
     "leadSourceIdPowerlink": 0
   },
   "/dm/": {
-    "phoneDisplay": "050-8489587",
-    "phoneTel": "0508489587",
+    "phoneDisplay": "050-9695880",
+    "phoneTel": "0509695880",
     "campaignId": "21586605061",
     "channelName": "משותף D",
     "pagePath": "/dm/",
