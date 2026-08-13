@@ -4,7 +4,7 @@ window.PELEPHONE_CAMPAIGN_ROUTES = {
     "phoneDisplay": "072-393-1015",
     "phoneTel": "0723931015",
     "campaignId": "8866584363",
-    "channelName": "ראשי נייד",
+    "channelName": "1. סייל אול ראשי נייד",
     "pagePath": "/",
     "leadSourceIdPowerlink": 3
   },
@@ -12,7 +12,7 @@ window.PELEPHONE_CAMPAIGN_ROUTES = {
     "phoneDisplay": "050-9695698",
     "phoneTel": "0509695698",
     "campaignId": "18862440154",
-    "channelName": "קבוצה A",
+    "channelName": "2. נייד A סייל אול-1800",
     "pagePath": "/a/",
     "leadSourceIdPowerlink": 3
   },
@@ -20,7 +20,7 @@ window.PELEPHONE_CAMPAIGN_ROUTES = {
     "phoneDisplay": "050-9695754",
     "phoneTel": "0509695754",
     "campaignId": "12440073323",
-    "channelName": "השארת פרטים",
+    "channelName": "8.סייל אול השארת פרטים אקטיב 360",
     "pagePath": "/active/",
     "leadSourceIdPowerlink": 3
   },
@@ -28,7 +28,7 @@ window.PELEPHONE_CAMPAIGN_ROUTES = {
     "phoneDisplay": "050-9990472",
     "phoneTel": "0509990472",
     "campaignId": "21582700793",
-    "channelName": "השארת פרטים הצטרפות",
+    "channelName": "81.סייל אול - השארת פרטים הצטרפות",
     "pagePath": "/active-2/",
     "leadSourceIdPowerlink": 3
   },
@@ -36,7 +36,7 @@ window.PELEPHONE_CAMPAIGN_ROUTES = {
     "phoneDisplay": "050-9695791",
     "phoneTel": "0509695791",
     "campaignId": "18868006212",
-    "channelName": "משותף A",
+    "channelName": "9 משותף [A] 1800 המרה",
     "pagePath": "/am/",
     "leadSourceIdPowerlink": 0
   },
@@ -44,7 +44,7 @@ window.PELEPHONE_CAMPAIGN_ROUTES = {
     "phoneDisplay": "050-9695700",
     "phoneTel": "0509695700",
     "campaignId": "18857864352",
-    "channelName": "קבוצה B",
+    "channelName": "3.סייל אול - קבוצה [B] ללא אייפי",
     "pagePath": "/b/",
     "leadSourceIdPowerlink": 3
   },
@@ -52,7 +52,7 @@ window.PELEPHONE_CAMPAIGN_ROUTES = {
     "phoneDisplay": "050-9695793",
     "phoneTel": "0509695793",
     "campaignId": "18875105030",
-    "channelName": "משותף B",
+    "channelName": "91. משותף [B] 1800 ללא אייפים",
     "pagePath": "/bm/",
     "leadSourceIdPowerlink": 0
   },
@@ -60,7 +60,7 @@ window.PELEPHONE_CAMPAIGN_ROUTES = {
     "phoneDisplay": "050-9695723",
     "phoneTel": "0509695723",
     "campaignId": "18857987730",
-    "channelName": "קבוצה C",
+    "channelName": "31.סייל אול - [C] [ללא הצטרפות] 5400",
     "pagePath": "/c/",
     "leadSourceIdPowerlink": 3
   },
@@ -68,7 +68,7 @@ window.PELEPHONE_CAMPAIGN_ROUTES = {
     "phoneDisplay": "050-9695805",
     "phoneTel": "0509695805",
     "campaignId": "21583009175",
-    "channelName": "משותף C",
+    "channelName": "92. משותף [C]הצטרפות ללא אייפים",
     "pagePath": "/cm/",
     "leadSourceIdPowerlink": 0
   },
@@ -76,7 +76,7 @@ window.PELEPHONE_CAMPAIGN_ROUTES = {
     "phoneDisplay": "050-9695733",
     "phoneTel": "0509695733",
     "campaignId": "18862902919",
-    "channelName": "קבוצה D",
+    "channelName": "4.סייל אול - [D] 1800",
     "pagePath": "/d/",
     "leadSourceIdPowerlink": 3
   },
@@ -84,7 +84,7 @@ window.PELEPHONE_CAMPAIGN_ROUTES = {
     "phoneDisplay": "050-8308739",
     "phoneTel": "0508308739",
     "campaignId": "8866624275",
-    "channelName": "משותף - נייד",
+    "channelName": "89. משותף פלאפון נייד",
     "pagePath": "/deal/",
     "leadSourceIdPowerlink": 0
   },
@@ -92,7 +92,7 @@ window.PELEPHONE_CAMPAIGN_ROUTES = {
     "phoneDisplay": "050-9695696",
     "phoneTel": "0509695696",
     "campaignId": "18863711270",
-    "channelName": "ראשי נייח פלאפון",
+    "channelName": "73. סייל אול נייח 1800 הכל חוץ מפלאפון",
     "pagePath": "/desktop/",
     "leadSourceIdPowerlink": 3
   },
@@ -100,7 +100,7 @@ window.PELEPHONE_CAMPAIGN_ROUTES = {
     "phoneDisplay": "050-9695735",
     "phoneTel": "0509695735",
     "campaignId": "18863405701",
-    "channelName": "קבוצה E",
+    "channelName": "41. סייל אול [E] 1800מותאם לביטוי",
     "pagePath": "/e/",
     "leadSourceIdPowerlink": 3
   },
@@ -108,7 +108,7 @@ window.PELEPHONE_CAMPAIGN_ROUTES = {
     "phoneDisplay": "050-9697001",
     "phoneTel": "0509697001",
     "campaignId": "18868173543",
-    "channelName": "משותף E",
+    "channelName": "96 משותף [E]",
     "pagePath": "/em/",
     "leadSourceIdPowerlink": 0
   },
@@ -116,7 +116,7 @@ window.PELEPHONE_CAMPAIGN_ROUTES = {
     "phoneDisplay": "050-8308900",
     "phoneTel": "0508308900",
     "campaignId": "21576014079",
-    "channelName": "קבוצה F",
+    "channelName": "5.סייל אול - קבוצה [f] הצטרפות ללא אייפי",
     "pagePath": "/f/",
     "leadSourceIdPowerlink": 3
   },
@@ -124,7 +124,7 @@ window.PELEPHONE_CAMPAIGN_ROUTES = {
     "phoneDisplay": "050-9695695",
     "phoneTel": "0509695695",
     "campaignId": "21582919373",
-    "channelName": "משותף נייח \"פלאפון\"",
+    "channelName": "97.משותף נייח \"פלאפון\" fm",
     "pagePath": "/fm/",
     "leadSourceIdPowerlink": 0
   },
@@ -132,7 +132,7 @@ window.PELEPHONE_CAMPAIGN_ROUTES = {
     "phoneDisplay": "050-9997822",
     "phoneTel": "0509997822",
     "campaignId": "21586313728",
-    "channelName": "קבוצה G",
+    "channelName": "6.סייל אול - [g] הצטרפות",
     "pagePath": "/g/",
     "leadSourceIdPowerlink": 3
   },
@@ -140,7 +140,7 @@ window.PELEPHONE_CAMPAIGN_ROUTES = {
     "phoneDisplay": "050-9697029",
     "phoneTel": "0509697029",
     "campaignId": "21576335673",
-    "channelName": "משותף G",
+    "channelName": "99 .משותף נייח הצטרפות gm",
     "pagePath": "/gm/",
     "leadSourceIdPowerlink": 0
   },
@@ -148,7 +148,7 @@ window.PELEPHONE_CAMPAIGN_ROUTES = {
     "phoneDisplay": "050-9997824",
     "phoneTel": "0509997824",
     "campaignId": "21576107685",
-    "channelName": "קבוצה H",
+    "channelName": "71.סייל אול - נייח הצטרפות [H]",
     "pagePath": "/h/",
     "leadSourceIdPowerlink": 3
   },
@@ -156,7 +156,7 @@ window.PELEPHONE_CAMPAIGN_ROUTES = {
     "phoneDisplay": "050-9997913",
     "phoneTel": "0509997913",
     "campaignId": "21586372537",
-    "channelName": "קבוצה I",
+    "channelName": "72.סייל אול - נייח [פלאפון] [i]",
     "pagePath": "/i/",
     "leadSourceIdPowerlink": 3
   },
@@ -164,7 +164,7 @@ window.PELEPHONE_CAMPAIGN_ROUTES = {
     "phoneDisplay": "050-8303611",
     "phoneTel": "0508303611",
     "campaignId": "18874927355",
-    "channelName": "משותף נייח חוץ",
+    "channelName": "98 . משותף נייח כל המילים חוץ מפלאפון [I]",
     "pagePath": "/im/",
     "leadSourceIdPowerlink": 0
   },
@@ -172,7 +172,7 @@ window.PELEPHONE_CAMPAIGN_ROUTES = {
     "phoneDisplay": "050-8307584",
     "phoneTel": "0508307584",
     "campaignId": "18868112373",
-    "channelName": "משותף J",
+    "channelName": "93 משותף [J] הצטרפות ללא חבילות",
     "pagePath": "/jm/",
     "leadSourceIdPowerlink": 0
   },
@@ -180,7 +180,7 @@ window.PELEPHONE_CAMPAIGN_ROUTES = {
     "phoneDisplay": "050-8307583",
     "phoneTel": "0508307583",
     "campaignId": "21576335670",
-    "channelName": "משותף K",
+    "channelName": "94 משותף -K חבילות",
     "pagePath": "/km/",
     "leadSourceIdPowerlink": 0
   },
@@ -188,7 +188,7 @@ window.PELEPHONE_CAMPAIGN_ROUTES = {
     "phoneDisplay": "050-9990471",
     "phoneTel": "0509990471",
     "campaignId": "22937037576",
-    "channelName": "PMAX",
+    "channelName": "7. PMAX סיילאול בלבד",
     "pagePath": "/pmax/",
     "leadSourceIdPowerlink": 3
   },
@@ -196,7 +196,7 @@ window.PELEPHONE_CAMPAIGN_ROUTES = {
     "phoneDisplay": "050-8303605",
     "phoneTel": "0508303605",
     "campaignId": "21576335664",
-    "channelName": "משותף נייח [פלאפון]",
+    "channelName": "991.משותף נייח [hm] [פלאפון]",
     "pagePath": "/hm/",
     "leadSourceIdPowerlink": 0
   },
@@ -204,7 +204,7 @@ window.PELEPHONE_CAMPAIGN_ROUTES = {
     "phoneDisplay": "050-9695880",
     "phoneTel": "0509695880",
     "campaignId": "21586605061",
-    "channelName": "משותף D",
+    "channelName": "95 משותף - [D]",
     "pagePath": "/dm/",
     "leadSourceIdPowerlink": 0
   }

@@ -13,7 +13,7 @@ window.PELEPHONE_CONFIG = window.PELEPHONE_CONFIG || {
   leadCategory: 'PELEPHONE',
   leadSourceIdPowerlink: 3,
   campaignId: '8866584363',
-  channelName: 'ראשי נייד',
+  channelName: '1. סייל אול ראשי נייד',
 
   // שירות לזיהוי כתובת IP הציבורית של המבקר (נשלח כ-visitor_ip ב-webhook)
   ipLookupUrl: 'https://api.ipify.org?format=json',
