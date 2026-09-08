@@ -206,5 +206,13 @@
     "campaignId": "21586605061",
     "channelName": "95 משותף - [D]",
     "leadSourceIdPowerlink": 0
+  },
+  {
+    "slug": "demand",
+    "pagePath": "/demand/",
+    "phone": "050-8307495",
+    "campaignId": "000000",
+    "channelName": "Demand",
+    "leadSourceIdPowerlink": 0
   }
 ]

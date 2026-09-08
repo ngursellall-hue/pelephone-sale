@@ -207,5 +207,13 @@ window.PELEPHONE_CAMPAIGN_ROUTES = {
     "channelName": "95 משותף - [D]",
     "pagePath": "/dm/",
     "leadSourceIdPowerlink": 0
+  },
+  "/demand/": {
+    "phoneDisplay": "050-8307495",
+    "phoneTel": "0508307495",
+    "campaignId": "000000",
+    "channelName": "Demand",
+    "pagePath": "/demand/",
+    "leadSourceIdPowerlink": 0
   }
 };
