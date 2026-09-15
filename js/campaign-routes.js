@@ -211,8 +211,8 @@ window.PELEPHONE_CAMPAIGN_ROUTES = {
   "/demand/": {
     "phoneDisplay": "050-8307495",
     "phoneTel": "0508307495",
-    "campaignId": "000000",
-    "channelName": "Demand",
+    "campaignId": "24255062314",
+    "channelName": "992 קמפיין ליצירת ביקוש – Demand",
     "pagePath": "/demand/",
     "leadSourceIdPowerlink": 0
   }
