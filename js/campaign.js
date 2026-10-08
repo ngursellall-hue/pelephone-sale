@@ -1,6 +1,8 @@
 /* ==========================================================================
    Campaign routes — phone, campaign_id, channel_name, page_path, lead_source_id per URL path
    Routes are generated from pelepone sale page.csv → js/campaign-routes.js
+   הקמפיין שהגולש נכנס ממנו נשמר ב-sessionStorage, כך שבמעבר לעמודים אחרים
+   (דף הבית, אודות, מאמרים, צור קשר) הטלפון והטופס ממשיכים לשייך לאותו קמפיין.
    ========================================================================== */
 
 (function () {
@@ -28,9 +30,31 @@
     return p;
   }
 
+  var SESSION_KEY = 'pelephone_campaign_path';
+
+  function readSessionPath() {
+    try { return sessionStorage.getItem(SESSION_KEY); } catch (e) { return null; }
+  }
+
+  function writeSessionPath(path) {
+    try { sessionStorage.setItem(SESSION_KEY, path); } catch (e) { /* storage may be unavailable */ }
+  }
+
+  // נתיב קמפיין (לא דף הבית) תמיד גובר ונשמר לסשן.
+  // דף הבית או עמוד ללא נתיב — משתמשים בקמפיין שנשמר בסשן, ואם אין — בדף הבית.
   function getRouteConfig() {
     var path = normalizePath(window.location.pathname);
-    return ROUTES[path] || null;
+    if (path !== '/' && ROUTES[path]) {
+      writeSessionPath(path);
+      return ROUTES[path];
+    }
+    var saved = readSessionPath();
+    if (saved && ROUTES[saved]) return ROUTES[saved];
+    if (ROUTES['/']) {
+      writeSessionPath('/');
+      return ROUTES['/'];
+    }
+    return null;
   }
 
   function canonicalizeUrlCase(canonicalPath) {
@@ -64,7 +88,7 @@
   function applyToPage(cfg) {
     var telHref = 'tel:' + cfg.phoneTel;
 
-    document.querySelectorAll('a[href^="tel:"]').forEach(function (link) {
+    document.querySelectorAll('a[href^="tel:"]:not([data-fixed-tel])').forEach(function (link) {
       link.setAttribute('href', telHref);
     });
 
@@ -79,7 +103,7 @@
     if (channelEl) channelEl.value = cfg.channelName || '';
 
     var pathEl = document.getElementById('page_path');
-    if (pathEl) pathEl.value = cfg.pagePath || '';
+    if (pathEl && !pathEl.hasAttribute('data-fixed')) pathEl.value = cfg.pagePath || '';
 
     var leadSourceEl = document.getElementById('lead_source_id_powerlink');
     if (leadSourceEl && cfg.leadSourceIdPowerlink !== undefined && cfg.leadSourceIdPowerlink !== null) {
@@ -140,7 +164,9 @@
     };
 
     if (route) {
-      canonicalizeUrlCase(route.pagePath);
+      if (normalizePath(window.location.pathname) === route.pagePath) {
+        canonicalizeUrlCase(route.pagePath);
+      }
       if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', function () {
           applyToPage(cfg);

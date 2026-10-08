@@ -355,7 +355,9 @@ def page(title, desc, canonical, inner, schema):
   <div class="sticky-cta" role="region" aria-label="פעולות מהירות">
     <a href="/#lead-form" class="btn btn-primary">לפרטים והצטרפות לפלאפון</a>
   </div>
+  <script src="/js/campaign-routes.js"></script>
   <script src="/js/config.js"></script>
+  <script src="/js/campaign.js"></script>
   <script src="/js/utm.js"></script>
 </body>
 </html>

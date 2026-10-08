@@ -12,8 +12,8 @@ window.PELEPHONE_CONFIG = window.PELEPHONE_CONFIG || {
   // קבועים שנשלחים יחד עם כל ליד
   leadCategory: 'PELEPHONE',
   leadSourceIdPowerlink: 3,
-  campaignId: '8866584363',
-  channelName: '1. סייל אול ראשי נייד',
+  campaignId: '0',
+  channelName: 'אורגני',
 
   // רשימת מפתחות ה-UTM/קמפיין שאנחנו לוכדים מה-URL ושומרים בסשן
   utmKeys: [

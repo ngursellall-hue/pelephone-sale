@@ -217,7 +217,7 @@
       ? window.PELEPHONE_CAMPAIGN.get()
       : null;
 
-    var campaignId = cfg.campaignId || '8866584363';
+    var campaignId = cfg.campaignId || '0';
     if (form && form.campaign_id && form.campaign_id.value) {
       campaignId = form.campaign_id.value;
     } else if (campaign && campaign.campaignId) {

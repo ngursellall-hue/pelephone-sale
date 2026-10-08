@@ -75,7 +75,7 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
               <div>
                 <strong>טלפון להנהלת האתר</strong>
-                <span dir="ltr"><a href="tel:043852800">04-3852800</a></span>
+                <span dir="ltr"><a href="tel:043852800" data-fixed-tel>04-3852800</a></span>
               </div>
             </div>
 
@@ -123,7 +123,7 @@
               </div>
               <input type="hidden" id="package" name="package" value="site_admin">
               <input type="hidden" id="inquiry_type" name="inquiry_type" value="site_admin">
-              <input type="hidden" id="page_path" name="page_path" value="/contact.html">
+              <input type="hidden" id="page_path" name="page_path" value="/contact.html" data-fixed>
               <div class="cf-turnstile" data-sitekey="0x4AAAAAAFRD7ITGU9qnokeC" data-action="lead"></div>
               <button type="submit" class="btn btn-primary btn-lg btn-block">
                 שליחת פנייה להנהלה
@@ -186,7 +186,7 @@
   </footer>
 
   <div class="sticky-cta" role="region" aria-label="פעולות מהירות">
-    <a href="tel:043852800" class="btn btn-phone sticky-cta__phone" aria-label="חייגו להנהלת האתר">
+    <a href="tel:043852800" data-fixed-tel class="btn btn-phone sticky-cta__phone" aria-label="חייגו להנהלת האתר">
       <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
     </a>
     <a href="index.html#lead-form" class="btn btn-primary">לפרטים והצטרפות — דף הבית</a>
@@ -231,7 +231,9 @@
     </div>
   </div>
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  <script src="js/campaign-routes.js"></script>
   <script src="js/config.js"></script>
+  <script src="js/campaign.js"></script>
   <script src="js/utm.js"></script>
   <script src="js/main.js"></script>
   <script src="js/site-ui.js"></script>
