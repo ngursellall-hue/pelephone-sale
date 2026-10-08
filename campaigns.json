@@ -214,5 +214,13 @@
     "campaignId": "24255062314",
     "channelName": "992 קמפיין ליצירת ביקוש – Demand",
     "leadSourceIdPowerlink": 0
+  },
+  {
+    "slug": "main",
+    "pagePath": "/main/",
+    "phone": "050-8090356",
+    "campaignId": "pending",
+    "channelName": "pending",
+    "leadSourceIdPowerlink": 0
   }
 ]

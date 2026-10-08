@@ -215,5 +215,13 @@ window.PELEPHONE_CAMPAIGN_ROUTES = {
     "channelName": "992 קמפיין ליצירת ביקוש – Demand",
     "pagePath": "/demand/",
     "leadSourceIdPowerlink": 0
+  },
+  "/main/": {
+    "phoneDisplay": "050-8090356",
+    "phoneTel": "0508090356",
+    "campaignId": "pending",
+    "channelName": "pending",
+    "pagePath": "/main/",
+    "leadSourceIdPowerlink": 0
   }
 };

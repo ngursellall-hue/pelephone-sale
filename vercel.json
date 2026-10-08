@@ -209,6 +209,14 @@
     {
       "source": "/:s([dD][eE][mM][aA][nN][dD])/",
       "destination": "/index.html"
+    },
+    {
+      "source": "/:s([mM][aA][iI][nN])",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/:s([mM][aA][iI][nN])/",
+      "destination": "/index.html"
     }
   ]
 }
