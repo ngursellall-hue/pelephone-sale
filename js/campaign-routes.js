@@ -3,8 +3,8 @@ window.PELEPHONE_CAMPAIGN_ROUTES = {
   "/": {
     "phoneDisplay": "072-393-1015",
     "phoneTel": "0723931015",
-    "campaignId": "8866584363",
-    "channelName": "1. סייל אול ראשי נייד",
+    "campaignId": "0",
+    "channelName": "אורגני",
     "pagePath": "/",
     "leadSourceIdPowerlink": 3
   },
@@ -219,9 +219,9 @@ window.PELEPHONE_CAMPAIGN_ROUTES = {
   "/main/": {
     "phoneDisplay": "050-8090356",
     "phoneTel": "0508090356",
-    "campaignId": "pending",
-    "channelName": "pending",
+    "campaignId": "8866584363",
+    "channelName": "1. סייל אול ראשי נייד",
     "pagePath": "/main/",
-    "leadSourceIdPowerlink": 0
+    "leadSourceIdPowerlink": 3
   }
 };

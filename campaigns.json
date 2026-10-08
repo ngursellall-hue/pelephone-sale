@@ -3,8 +3,8 @@
     "slug": "/",
     "pagePath": "/",
     "phone": "072-393-1015",
-    "campaignId": "8866584363",
-    "channelName": "1. סייל אול ראשי נייד",
+    "campaignId": "0",
+    "channelName": "אורגני",
     "leadSourceIdPowerlink": 3
   },
   {
@@ -219,8 +219,8 @@
     "slug": "main",
     "pagePath": "/main/",
     "phone": "050-8090356",
-    "campaignId": "pending",
-    "channelName": "pending",
-    "leadSourceIdPowerlink": 0
+    "campaignId": "8866584363",
+    "channelName": "1. סייל אול ראשי נייד",
+    "leadSourceIdPowerlink": 3
   }
 ]
