@@ -190,56 +190,24 @@
     window.location.href = '/thank-you.html';
   }
 
-  // --- Visitor IP (public IP via lookup service; cached per session) -------
+  // --- Cloudflare Turnstile ----------------------------------------------
+  // הווידג'ט (div.cf-turnstile בתוך הטופס) מוסיף שדה נסתר cf-turnstile-response.
+  // הטוקן בד"כ מוכן הרבה לפני השליחה; אם לא — ממתינים קצת, ואם עדיין אין,
+  // שולחים בלעדיו והשרת יסמן את הליד כחשוד (לא נזרק).
 
-  var VISITOR_IP_CACHE_KEY = 'pelephone_visitor_ip';
+  var TURNSTILE_WAIT_MS = 3000;
 
-  function resolveVisitorIp() {
-    try {
-      var cached = sessionStorage.getItem(VISITOR_IP_CACHE_KEY);
-      if (cached) return Promise.resolve(cached);
-    } catch (e) { /* storage unavailable */ }
-
-    var cfg = window.PELEPHONE_CONFIG || {};
-    var lookupUrl = cfg.ipLookupUrl || 'https://api.ipify.org?format=json';
-    var timeoutMs = (typeof cfg.ipLookupTimeoutMs === 'number') ? cfg.ipLookupTimeoutMs : 2500;
-
-    if (typeof fetch !== 'function') return Promise.resolve('');
-
+  function waitForTurnstileToken(form) {
     return new Promise(function (resolve) {
-      var done = false;
-      var timer = setTimeout(function () {
-        if (done) return;
-        done = true;
-        resolve('');
-      }, timeoutMs);
-
-      fetch(lookupUrl, { credentials: 'omit', mode: 'cors' })
-        .then(function (res) {
-          if (!res.ok) throw new Error('ip lookup ' + res.status);
-          return res.json();
-        })
-        .then(function (data) {
-          if (done) return;
-          done = true;
-          clearTimeout(timer);
-          var ip = (data && data.ip) ? String(data.ip).trim() : '';
-          if (ip) {
-            try { sessionStorage.setItem(VISITOR_IP_CACHE_KEY, ip); } catch (e) { /* noop */ }
-          }
-          resolve(ip);
-        })
-        .catch(function () {
-          if (done) return;
-          done = true;
-          clearTimeout(timer);
-          resolve('');
-        });
+      var waited = 0;
+      (function check() {
+        var input = form && form.querySelector('[name="cf-turnstile-response"]');
+        if ((input && input.value) || waited >= TURNSTILE_WAIT_MS) return resolve(input ? input.value : '');
+        waited += 200;
+        setTimeout(check, 200);
+      })();
     });
   }
-
-  // טעינה מוקדמת — כך שליחת הטופס לא ממתינה (או ממתינה פחות) ל-IP lookup
-  resolveVisitorIp();
 
   // --- Webhook submission -------------------------------------------------
 
@@ -301,8 +269,7 @@
       lead_source_id_powerlink: campaignFields.lead_source_id_powerlink,
       campaign_id: campaignFields.campaign_id,
       channel_name: campaignFields.channel_name,
-      page_path: campaignFields.page_path,
-      visitor_ip: ''
+      page_path: campaignFields.page_path
     };
 
     // UTM מה-URL — campaign_id ב-payload מגיע מנתיב/טופס, לא מ-UTM
@@ -323,10 +290,9 @@
     return payload;
   }
 
-  function sendWebhook(payload) {
-    return resolveVisitorIp().then(function (ip) {
-      payload.visitor_ip = ip || '';
-      return postWebhook(payload);
+  function sendWebhook(payload, form) {
+    return waitForTurnstileToken(form).then(function (token) {
+      return postWebhook(Object.assign({}, payload, { cf_turnstile_token: token }));
     });
   }
 
@@ -437,7 +403,7 @@
       if (formSuccess) formSuccess.classList.add('visible');
       leadForm.style.display = 'none';
 
-      withTimeout(sendWebhook(payload), 4000).then(redirectToThankYou);
+      withTimeout(sendWebhook(payload, leadForm), 6000).then(redirectToThankYou);
     });
 
     ['fullName', 'phone'].forEach(function (field) {
@@ -503,7 +469,7 @@
       if (success) success.classList.add('visible');
       form.style.display = 'none';
 
-      withTimeout(sendWebhook(payload), 4000);
+      withTimeout(sendWebhook(payload, form), 6000);
     });
   }
 
