@@ -9,216 +9,216 @@ window.PELEPHONE_CAMPAIGN_ROUTES = {
     "leadSourceIdPowerlink": 3
   },
   "/a/": {
-    "phoneDisplay": "050-9695698",
-    "phoneTel": "0509695698",
+    "phoneDisplay": "055-2116915",
+    "phoneTel": "0552116915",
     "campaignId": "18862440154",
     "channelName": "2. נייד A סייל אול-1800",
     "pagePath": "/a/",
     "leadSourceIdPowerlink": 3
   },
   "/active/": {
-    "phoneDisplay": "050-9695754",
-    "phoneTel": "0509695754",
+    "phoneDisplay": "055-2116575",
+    "phoneTel": "0552116575",
     "campaignId": "12440073323",
     "channelName": "8.סייל אול השארת פרטים אקטיב 360",
     "pagePath": "/active/",
     "leadSourceIdPowerlink": 3
   },
   "/active-2/": {
-    "phoneDisplay": "050-9990472",
-    "phoneTel": "0509990472",
+    "phoneDisplay": "055-2116592",
+    "phoneTel": "0552116592",
     "campaignId": "21582700793",
     "channelName": "81.סייל אול - השארת פרטים הצטרפות",
     "pagePath": "/active-2/",
     "leadSourceIdPowerlink": 3
   },
   "/am/": {
-    "phoneDisplay": "050-9695791",
-    "phoneTel": "0509695791",
+    "phoneDisplay": "055-2116612",
+    "phoneTel": "0552116612",
     "campaignId": "18868006212",
     "channelName": "9 משותף [A] 1800 המרה",
     "pagePath": "/am/",
     "leadSourceIdPowerlink": 0
   },
   "/b/": {
-    "phoneDisplay": "050-9695700",
-    "phoneTel": "0509695700",
+    "phoneDisplay": "055-2116627",
+    "phoneTel": "0552116627",
     "campaignId": "18857864352",
     "channelName": "3.סייל אול - קבוצה [B] ללא אייפי",
     "pagePath": "/b/",
     "leadSourceIdPowerlink": 3
   },
   "/bm/": {
-    "phoneDisplay": "050-9695793",
-    "phoneTel": "0509695793",
+    "phoneDisplay": "055-2115249",
+    "phoneTel": "0552115249",
     "campaignId": "18875105030",
     "channelName": "91. משותף [B] 1800 ללא אייפים",
     "pagePath": "/bm/",
     "leadSourceIdPowerlink": 0
   },
   "/c/": {
-    "phoneDisplay": "050-9695723",
-    "phoneTel": "0509695723",
+    "phoneDisplay": "055-2115317",
+    "phoneTel": "0552115317",
     "campaignId": "18857987730",
     "channelName": "31.סייל אול - [C] [ללא הצטרפות] 5400",
     "pagePath": "/c/",
     "leadSourceIdPowerlink": 3
   },
   "/cm/": {
-    "phoneDisplay": "050-9695805",
-    "phoneTel": "0509695805",
+    "phoneDisplay": "055-2115351",
+    "phoneTel": "0552115351",
     "campaignId": "21583009175",
     "channelName": "92. משותף [C]הצטרפות ללא אייפים",
     "pagePath": "/cm/",
     "leadSourceIdPowerlink": 0
   },
   "/d/": {
-    "phoneDisplay": "050-9695733",
-    "phoneTel": "0509695733",
+    "phoneDisplay": "055-2115373",
+    "phoneTel": "0552115373",
     "campaignId": "18862902919",
     "channelName": "4.סייל אול - [D] 1800",
     "pagePath": "/d/",
     "leadSourceIdPowerlink": 3
   },
   "/deal/": {
-    "phoneDisplay": "050-8308739",
-    "phoneTel": "0508308739",
+    "phoneDisplay": "055-2115377",
+    "phoneTel": "0552115377",
     "campaignId": "8866624275",
     "channelName": "89. משותף פלאפון נייד",
     "pagePath": "/deal/",
     "leadSourceIdPowerlink": 0
   },
   "/desktop/": {
-    "phoneDisplay": "050-9695696",
-    "phoneTel": "0509695696",
+    "phoneDisplay": "055-2115389",
+    "phoneTel": "0552115389",
     "campaignId": "18863711270",
     "channelName": "73. סייל אול נייח 1800 הכל חוץ מפלאפון",
     "pagePath": "/desktop/",
     "leadSourceIdPowerlink": 3
   },
   "/e/": {
-    "phoneDisplay": "050-9695735",
-    "phoneTel": "0509695735",
+    "phoneDisplay": "055-2115404",
+    "phoneTel": "0552115404",
     "campaignId": "18863405701",
     "channelName": "41. סייל אול [E] 1800מותאם לביטוי",
     "pagePath": "/e/",
     "leadSourceIdPowerlink": 3
   },
   "/em/": {
-    "phoneDisplay": "050-9697001",
-    "phoneTel": "0509697001",
-    "campaignId": "18868173543",
+    "phoneDisplay": "055-2115406",
+    "phoneTel": "0552115406",
+    "campaignId": "24215673294",
     "channelName": "96 משותף [E]",
     "pagePath": "/em/",
     "leadSourceIdPowerlink": 0
   },
   "/f/": {
-    "phoneDisplay": "050-8308900",
-    "phoneTel": "0508308900",
+    "phoneDisplay": "055-2116847",
+    "phoneTel": "0552116847",
     "campaignId": "21576014079",
     "channelName": "5.סייל אול - קבוצה [f] הצטרפות ללא אייפי",
     "pagePath": "/f/",
     "leadSourceIdPowerlink": 3
   },
   "/fm/": {
-    "phoneDisplay": "050-9695695",
-    "phoneTel": "0509695695",
+    "phoneDisplay": "055-2116848",
+    "phoneTel": "0552116848",
     "campaignId": "21582919373",
     "channelName": "97.משותף נייח \"פלאפון\" fm",
     "pagePath": "/fm/",
     "leadSourceIdPowerlink": 0
   },
   "/g/": {
-    "phoneDisplay": "050-9997822",
-    "phoneTel": "0509997822",
+    "phoneDisplay": "055-2116849",
+    "phoneTel": "0552116849",
     "campaignId": "21586313728",
     "channelName": "6.סייל אול - [g] הצטרפות",
     "pagePath": "/g/",
     "leadSourceIdPowerlink": 3
   },
   "/gm/": {
-    "phoneDisplay": "050-9697029",
-    "phoneTel": "0509697029",
+    "phoneDisplay": "055-2116909",
+    "phoneTel": "0552116909",
     "campaignId": "21576335673",
     "channelName": "99 .משותף נייח הצטרפות gm",
     "pagePath": "/gm/",
     "leadSourceIdPowerlink": 0
   },
   "/h/": {
-    "phoneDisplay": "050-9997824",
-    "phoneTel": "0509997824",
+    "phoneDisplay": "055-2116910",
+    "phoneTel": "0552116910",
     "campaignId": "21576107685",
     "channelName": "71.סייל אול - נייח הצטרפות [H]",
     "pagePath": "/h/",
     "leadSourceIdPowerlink": 3
   },
   "/i/": {
-    "phoneDisplay": "050-9997913",
-    "phoneTel": "0509997913",
+    "phoneDisplay": "055-2116912",
+    "phoneTel": "0552116912",
     "campaignId": "21586372537",
     "channelName": "72.סייל אול - נייח [פלאפון] [i]",
     "pagePath": "/i/",
     "leadSourceIdPowerlink": 3
   },
   "/im/": {
-    "phoneDisplay": "050-8303611",
-    "phoneTel": "0508303611",
+    "phoneDisplay": "055-2116914",
+    "phoneTel": "0552116914",
     "campaignId": "18874927355",
     "channelName": "98 . משותף נייח כל המילים חוץ מפלאפון [I]",
     "pagePath": "/im/",
     "leadSourceIdPowerlink": 0
   },
   "/jm/": {
-    "phoneDisplay": "050-8307584",
-    "phoneTel": "0508307584",
+    "phoneDisplay": "055-2116920",
+    "phoneTel": "0552116920",
     "campaignId": "18868112373",
     "channelName": "93 משותף [J] הצטרפות ללא חבילות",
     "pagePath": "/jm/",
     "leadSourceIdPowerlink": 0
   },
   "/km/": {
-    "phoneDisplay": "050-8307583",
-    "phoneTel": "0508307583",
+    "phoneDisplay": "055-2114650",
+    "phoneTel": "0552114650",
     "campaignId": "21576335670",
     "channelName": "94 משותף -K חבילות",
     "pagePath": "/km/",
     "leadSourceIdPowerlink": 0
   },
   "/pmax/": {
-    "phoneDisplay": "050-9990471",
-    "phoneTel": "0509990471",
+    "phoneDisplay": "055-2114651",
+    "phoneTel": "0552114651",
     "campaignId": "22937037576",
     "channelName": "7. PMAX סיילאול בלבד",
     "pagePath": "/pmax/",
     "leadSourceIdPowerlink": 3
   },
   "/hm/": {
-    "phoneDisplay": "050-8303605",
-    "phoneTel": "0508303605",
+    "phoneDisplay": "055-2114652",
+    "phoneTel": "0552114652",
     "campaignId": "21576335664",
     "channelName": "991.משותף נייח [hm] [פלאפון]",
     "pagePath": "/hm/",
     "leadSourceIdPowerlink": 0
   },
   "/dm/": {
-    "phoneDisplay": "050-9695880",
-    "phoneTel": "0509695880",
+    "phoneDisplay": "055-2114653",
+    "phoneTel": "0552114653",
     "campaignId": "21586605061",
     "channelName": "95 משותף - [D]",
     "pagePath": "/dm/",
     "leadSourceIdPowerlink": 0
   },
   "/demand/": {
-    "phoneDisplay": "050-8307495",
-    "phoneTel": "0508307495",
+    "phoneDisplay": "055-2114654",
+    "phoneTel": "0552114654",
     "campaignId": "24255062314",
     "channelName": "992 קמפיין ליצירת ביקוש – Demand",
     "pagePath": "/demand/",
     "leadSourceIdPowerlink": 0
   },
   "/main/": {
-    "phoneDisplay": "050-8090356",
-    "phoneTel": "0508090356",
+    "phoneDisplay": "055-2115060",
+    "phoneTel": "0552115060",
     "campaignId": "8866584363",
     "channelName": "1. סייל אול ראשי נייד",
     "pagePath": "/main/",
