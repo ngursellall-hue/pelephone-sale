@@ -160,6 +160,14 @@ window.PELEPHONE_CAMPAIGN_ROUTES = {
     "pagePath": "/i/",
     "leadSourceIdPowerlink": 3
   },
+  "/i2/": {
+    "phoneDisplay": "055-2116821",
+    "phoneTel": "0552116821",
+    "campaignId": "21586531570",
+    "channelName": "7.סייל אול - נייח \"פלאפון\"i",
+    "pagePath": "/i2/",
+    "leadSourceIdPowerlink": 3
+  },
   "/im/": {
     "phoneDisplay": "055-2116914",
     "phoneTel": "0552116914",
