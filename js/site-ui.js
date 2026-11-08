@@ -8,6 +8,66 @@
   var FONT_STEP = 10;
 
   var PACKAGE_DETAILS = {
+    /* מבצע לשבוע בלבד (מ-4/11 ו-5/11/2026) */
+    '400gb-extra-more': {
+      title: '400GB Extra More',
+      price: 'החל מ- 20 ₪ לחודש',
+      html:
+        '<section class="modal__section">' +
+          '<h3 class="modal__section-title">1. תנאי התוכנית</h3>' +
+          '<div class="modal__section-text">' +
+            '<p>התכנית כוללת 3500 דקות ו-SMS ו-400GB בחודש.</p>' +
+          '</div>' +
+        '</section>' +
+        '<section class="modal__section">' +
+          '<h3 class="modal__section-title">2. מחיר</h3>' +
+          '<div class="modal__section-text">' +
+            '<p>5 מנויים ב-100 ₪ לחודש</p>' +
+            '<p>למצטרפים מנוי 1 עד 4 — 29.9 ש"ח לחודש למנוי</p>' +
+            '<p>למצטרפים 5 מנויים ומעלה — 20 ש"ח לחודש למנוי</p>' +
+            '<p>לאחר שנה: 69.9 ₪ לחודש לכל מנוי</p>' +
+          '</div>' +
+        '</section>' +
+        '<section class="modal__section">' +
+          '<h3 class="modal__section-title">3. פרטים נוספים</h3>' +
+          '<div class="modal__section-text">' +
+            '<p>מבצע לשבוע בלבד</p>' +
+            '<p>כרטיס SIM ללא עלות</p>' +
+            '<p class="modal__note">* כפופים לתנאי המבצע המעודכנים בחברת פלאפון. ללא התחייבות. מחירים כוללים מע"מ.</p>' +
+          '</div>' +
+        '</section>'
+    },
+    '1000gb-extra-more': {
+      title: '1000GB 5G Extra More',
+      price: 'החל מ- 25 ₪ לחודש',
+      html:
+        '<section class="modal__section">' +
+          '<h3 class="modal__section-title">1. תנאי התוכנית</h3>' +
+          '<div class="modal__section-text">' +
+            '<p>התכנית כוללת 5000 דקות ו-SMS ו-1000GB בחודש. | גלישה בדור 5</p>' +
+            '<p>גלישה חופשית באפליקציות נבחרות</p>' +
+          '</div>' +
+        '</section>' +
+        '<section class="modal__section">' +
+          '<h3 class="modal__section-title">2. מחיר</h3>' +
+          '<div class="modal__section-text">' +
+            '<p>4 מנויים ב-100 ₪ לחודש</p>' +
+            '<p>למצטרפים מנוי 1 — 39.9 ש"ח לחודש למנוי</p>' +
+            '<p>למצטרפים מנוי 2 — 35 ש"ח לחודש למנוי</p>' +
+            '<p>למצטרפים מנוי 3 — 33 ש"ח לחודש למנוי</p>' +
+            '<p>למצטרפים 4-5 מנויים ומעלה — 25 ש"ח לחודש למנוי</p>' +
+            '<p>לאחר שנה: 69.9 ₪ לחודש לכל מנוי</p>' +
+          '</div>' +
+        '</section>' +
+        '<section class="modal__section">' +
+          '<h3 class="modal__section-title">3. פרטים נוספים</h3>' +
+          '<div class="modal__section-text">' +
+            '<p>מבצע לשבוע בלבד</p>' +
+            '<p>כרטיס SIM ללא עלות</p>' +
+            '<p class="modal__note">* כפופים לתנאי המבצע המעודכנים בחברת פלאפון. ללא התחייבות. מחירים כוללים מע"מ.</p>' +
+          '</div>' +
+        '</section>'
+    },
     '4g-plus': {
       title: '4G plus',
       price: 'החל מ- 28 ₪ לחודש',
