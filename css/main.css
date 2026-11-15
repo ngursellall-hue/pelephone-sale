@@ -1634,6 +1634,42 @@ h1, h2, h3, h4 {
   margin-bottom: 8px;
 }
 
+.form-send-error {
+  text-align: center;
+  padding: 20px 4px 4px;
+}
+
+.form-send-error[hidden] {
+  display: none;
+}
+
+.form-send-error h3 {
+  color: #b91c1c;
+  margin-bottom: 8px;
+}
+
+.form-send-error p {
+  color: var(--gray-700);
+  margin-bottom: 18px;
+  line-height: 1.6;
+}
+
+.form-send-error__call {
+  font-size: 1.15rem;
+  white-space: nowrap;
+}
+
+.form-send-error__retry {
+  margin-top: 14px;
+  background: none;
+  border: 0;
+  color: var(--blue-primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font: inherit;
+  cursor: pointer;
+}
+
 /* ---- Benefits ---- */
 .benefits {
   padding: 80px 0;

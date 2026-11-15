@@ -290,10 +290,60 @@
     return payload;
   }
 
+  // זמן מקסימלי לתשובה מהשרת; אחריו מציגים לגולש הודעת שגיאה עם חיוג.
+  var SEND_TIMEOUT_MS = 8000;
+
   function sendWebhook(payload, form) {
     return waitForTurnstileToken(form).then(function (token) {
-      return postWebhook(Object.assign({}, payload, { cf_turnstile_token: token }));
+      return withTimeout(postWebhook(Object.assign({}, payload, { cf_turnstile_token: token })), SEND_TIMEOUT_MS);
     });
+  }
+
+  // הליד נחשב כנשלח רק כשהשרת החזיר 2xx. beacon/timeout/שגיאה = לא נשלח.
+  function isSent(result) {
+    return !!(result && result.ok);
+  }
+
+  function setSubmitting(form, on) {
+    var btn = form.querySelector('[type="submit"]');
+    if (!btn) return;
+    if (on) {
+      btn.setAttribute('data-label', btn.textContent);
+      btn.textContent = 'שולח...';
+    } else if (btn.getAttribute('data-label')) {
+      btn.textContent = btn.getAttribute('data-label');
+    }
+    btn.disabled = on;
+  }
+
+  // הודעה כשהשליחה נכשלה: חיוג למספר הקמפיין (נשמר ב-PayCall) או ניסיון חוזר.
+  function showSendError(form, pagePath) {
+    var box = form.parentElement.querySelector('.form-send-error');
+    if (!box) {
+      var phone = getCampaignContactPhone(pagePath);
+      box = document.createElement('div');
+      box.className = 'form-send-error';
+      box.setAttribute('role', 'alert');
+      box.innerHTML =
+        '<h3>הפרטים לא נשלחו</h3>' +
+        '<p>יש לנו תקלה זמנית באתר. כדי שלא תפספסו את ההצעה, חייגו אלינו ונציג יטפל בכם מיד.</p>' +
+        '<a class="btn btn-primary btn-lg btn-block form-send-error__call" href="tel:' + phone.phoneTel + '">' +
+          '📞 חייגו עכשיו: <span dir="ltr">' + phone.phoneDisplay + '</span></a>' +
+        '<button type="button" class="form-send-error__retry">נסו לשלוח שוב</button>';
+      box.querySelector('.form-send-error__retry').addEventListener('click', function () {
+        box.hidden = true;
+        form.style.display = '';
+        // טוקן Turnstile חד-פעמי — בלי איפוס הניסיון החוזר יסומן כחשוד
+        try {
+          var widget = form.querySelector('.cf-turnstile');
+          if (window.turnstile && widget) window.turnstile.reset(widget);
+        } catch (e) { /* noop */ }
+      });
+      form.parentElement.insertBefore(box, form.nextSibling);
+    }
+    form.style.display = 'none';
+    box.hidden = false;
+    box.scrollIntoView({ block: 'center', behavior: 'smooth' });
   }
 
   function postWebhook(payload) {
@@ -400,10 +450,14 @@
         gtag('event', 'generate_lead', { event_category: 'form' });
       }
 
-      if (formSuccess) formSuccess.classList.add('visible');
-      leadForm.style.display = 'none';
-
-      withTimeout(sendWebhook(payload, leadForm), 6000).then(redirectToThankYou);
+      setSubmitting(leadForm, true);
+      sendWebhook(payload, leadForm).then(function (result) {
+        setSubmitting(leadForm, false);
+        if (!isSent(result)) return showSendError(leadForm, payload.page_path);
+        if (formSuccess) formSuccess.classList.add('visible');
+        leadForm.style.display = 'none';
+        redirectToThankYou();
+      });
     });
 
     ['fullName', 'phone'].forEach(function (field) {
@@ -465,11 +519,14 @@
         gtag('event', 'generate_lead', { event_category: 'admin_contact_form' });
       }
 
-      var success = document.getElementById('adminContactSuccess');
-      if (success) success.classList.add('visible');
-      form.style.display = 'none';
-
-      withTimeout(sendWebhook(payload, form), 6000);
+      setSubmitting(form, true);
+      sendWebhook(payload, form).then(function (result) {
+        setSubmitting(form, false);
+        if (!isSent(result)) return showSendError(form, payload.page_path);
+        var success = document.getElementById('adminContactSuccess');
+        if (success) success.classList.add('visible');
+        form.style.display = 'none';
+      });
     });
   }
 
