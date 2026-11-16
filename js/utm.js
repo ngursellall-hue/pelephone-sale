@@ -3,8 +3,9 @@
    ==========================================================================
    מטרה:
    - בכל טעינת עמוד: לקרוא פרמטרים מה-URL (UTM, gclid, campaign_id)
-   - למזג עם הערכים הקיימים ב-sessionStorage (URL חדש דורס; ערכים שלא הופיעו
-     שוב נשמרים — כך גלישה בין עמודי האתר לא מאבדת מקור)
+   - למזג עם הערכים הקיימים ב-localStorage ל-30 יום (URL חדש דורס; ערכים שלא
+     הופיעו שוב נשמרים — כך גם ביקור חוזר לא מאבד מקור)
+   - אם אין gclid — גיבוי מעוגיית _gcl_aw של GTM
    - לחשוף API גלובלי ל-window.PelephoneUtm לקריאה ע"י main.js
    ========================================================================== */
 
@@ -13,6 +14,8 @@
 
   var STORAGE_KEY = 'pelephone_utm';
   var FIRST_TOUCH_KEY = 'pelephone_utm_first_touch';
+  // נשמר ב-localStorage ל-30 יום, כדי שלקוח שחוזר בביקור נוסף עדיין יישלח עם ה-gclid
+  var TTL_MS = 30 * 24 * 60 * 60 * 1000;
   var cfg = window.PELEPHONE_CONFIG || {};
   var KEYS = (cfg.utmKeys && cfg.utmKeys.length) ? cfg.utmKeys : [
     'campaign_id', 'gclid',
@@ -26,17 +29,35 @@
     return obj;
   }
 
+  // ערך שמור = { data, ts }; אחרי 30 יום מהגעה אחרונה עם פרמטרים הוא נחשב ריק
   function safeRead(key) {
     try {
-      var raw = sessionStorage.getItem(key);
-      return raw ? JSON.parse(raw) : null;
+      var raw = localStorage.getItem(key);
+      var box = raw ? JSON.parse(raw) : null;
+      if (!box || !box.data || !(Date.now() - box.ts < TTL_MS)) return null;
+      return box.data;
     } catch (e) { return null; }
   }
 
-  function safeWrite(key, value) {
+  function safeWrite(key, value, keepTs) {
     try {
-      sessionStorage.setItem(key, JSON.stringify(value));
+      var ts = Date.now();
+      if (keepTs) {
+        var old = JSON.parse(localStorage.getItem(key) || 'null');
+        if (old && old.ts) ts = old.ts;
+      }
+      localStorage.setItem(key, JSON.stringify({ data: value, ts: ts }));
     } catch (e) { /* storage may be unavailable (private mode etc) */ }
+  }
+
+  // גיבוי: עוגיית _gcl_aw ש-GTM (Conversion Linker) שומר, בפורמט GCL.<זמן>.<gclid>
+  function gclidFromCookie() {
+    try {
+      var m = document.cookie.match(/(?:^|;\s*)_gcl_aw=([^;]+)/);
+      if (!m) return '';
+      var parts = decodeURIComponent(m[1]).split('.');
+      return parts.length >= 3 ? parts.slice(2).join('.') : '';
+    } catch (e) { return ''; }
   }
 
   function parseFromUrl() {
@@ -74,7 +95,8 @@
       }
     }
 
-    safeWrite(STORAGE_KEY, merged);
+    // ה-30 יום נספרים מהפעם האחרונה שהלקוח הגיע עם פרמטרים, לא מכל מעבר עמוד
+    safeWrite(STORAGE_KEY, merged, !hasNew);
 
     // First-touch attribution: שומר את הפעם הראשונה שהמשתמש הגיע עם UTM
     var firstTouch = safeRead(FIRST_TOUCH_KEY);
@@ -96,7 +118,9 @@
      * מחזיר אובייקט עם כל מפתחות ה-UTM. ערכים חסרים = "".
      */
     get: function () {
-      return safeRead(STORAGE_KEY) || emptyTemplate();
+      var data = safeRead(STORAGE_KEY) || emptyTemplate();
+      if (!data.gclid) data.gclid = gclidFromCookie();
+      return data;
     },
 
     /**
@@ -111,8 +135,8 @@
      */
     clear: function () {
       try {
-        sessionStorage.removeItem(STORAGE_KEY);
-        sessionStorage.removeItem(FIRST_TOUCH_KEY);
+        localStorage.removeItem(STORAGE_KEY);
+        localStorage.removeItem(FIRST_TOUCH_KEY);
       } catch (e) { /* noop */ }
     }
   };
